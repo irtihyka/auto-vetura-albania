@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-custom-dark: #0f172a;
+  --color-custom-grey: #f0f4f8;
+  --color-custom-blue: #2563eb;
+  --color-custom-cyan: #06b6d4;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GSAP-friendly CSS keyframes (zero JS per frame)
+═══════════════════════════════════════════════════════════ */
+
+/* Float – continuous Y bobbing using custom property */
+@keyframes gsapFloat {
+  0%,
+  100% {
+    transform: translateY(calc(-1 * var(--float-y)));
+  }
+  50% {
+    transform: translateY(var(--float-y));
+  }
+}
+
+/* ShimmerText – moving gradient highlight */
+@keyframes gsapShimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Scroll indicator dot bounce */
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(12px);
+    opacity: 0.3;
+  }
+}
+
+/* Search icon pulse (left-right nudge) */
+@keyframes searchPulse {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+/* Hero entrance – staggered via animation-delay */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PWA install prompt slide-up */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

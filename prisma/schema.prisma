@@ -1,0 +1,160 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  phone     String?
+  password  String
+  avatar    String?
+  role      String   @default("user") // "user" or "admin"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  listings        Listing[]
+  favorites       Favorite[]
+  contactMessages ContactMessage[]
+  reviews         Review[]         // reviews this user has written
+  receivedReviews Review[]         @relation("ReviewSeller")
+  reports         Report[]
+}
+
+model Listing {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  brand       String
+  model       String
+  year        Int
+  fuel        String   // "Benzinë", "Diesel", "Hibrid", "Elektrik", "Gas"
+  transmission String  // "Automatik", "Manual"
+  km          Int
+  price       Float
+  color       String?
+  vehicleType String   @default("Makinë") // "Makinë", "Motocikletë", "Kamion", "Furgon"
+  bodyType    String?  // "Sedan", "SUV", "Hatchback", "Coupe", etc.
+  location    String?
+  phone       String?
+  status      String   @default("active") // "active", "sold", "paused"
+  featured    Boolean  @default(false)
+  premium     Boolean  @default(false)
+  premiumUntil DateTime?
+  views       Int      @default(0)
+  clicks      Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  images    ListingImage[]
+  favorites Favorite[]
+  reviews   Review[]
+  reports   Report[]
+  analytics ListingAnalytics[]
+}
+
+model ListingImage {
+  id        String  @id @default(cuid())
+  url       String
+  order     Int     @default(0)
+
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+}
+
+model Favorite {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, listingId])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+}
+
+model SiteSettings {
+  id          String @id @default("main")
+  siteName    String @default("Auto Vetura Albania")
+  siteDesc    String @default("Platforma më e madhe për shitblerje makinash në Shqipëri")
+  instagram   String @default("")
+  facebook    String @default("")
+  tiktok      String @default("")
+  whatsapp    String @default("")
+  youtube     String @default("")
+  contactEmail String @default("")
+  contactPhone String @default("")
+  contactAddress String @default("")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int      // 1-5
+  comment   String?
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  sellerId  String
+  seller    User    @relation("ReviewSeller", fields: [sellerId], references: [id], onDelete: Cascade)
+
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, listingId])
+}
+
+model Report {
+  id        String   @id @default(cuid())
+  reason    String   // "spam", "fraud", "duplicate", "inappropriate", "other"
+  details   String?
+  status    String   @default("pending") // "pending", "reviewed", "dismissed"
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, listingId])
+}
+
+model ListingAnalytics {
+  id        String   @id @default(cuid())
+  date      String   // "YYYY-MM-DD" format
+  views     Int      @default(0)
+  clicks    Int      @default(0)
+
+  listingId String
+  listing   Listing @relation(fields: [listingId], references: [id], onDelete: Cascade)
+
+  @@unique([listingId, date])
+}
