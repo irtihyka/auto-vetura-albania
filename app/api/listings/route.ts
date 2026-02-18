@@ -54,6 +54,8 @@ export async function GET(request: NextRequest) {
     const where: Record<string, unknown> = userId ? {} : { status: "active" };
 
     if (brand) where.brand = brand;
+    const model = searchParams.get("model");
+    if (model) where.model = model;
     if (fuel) where.fuel = fuel;
     if (transmission) where.transmission = transmission;
     if (vehicleType) where.vehicleType = vehicleType;

@@ -12,6 +12,7 @@ import {
 } from "@/components/animations";
 import SocialSection from "@/components/SocialSection";
 import { allBrandsList, BrandCard } from "@/components/BrandLogos";
+import { getModelsForBrand } from "@/lib/brand-models";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin();
@@ -273,7 +274,7 @@ export default function Home() {
                 {/* Brand */}
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Marka</label>
-                  <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)}
+                  <select value={selectedBrand} onChange={(e) => { setSelectedBrand(e.target.value); setSelectedModel(""); }}
                     className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Çdo markë</option>
                     {allBrands.map((b) => <option key={b} value={b} className="bg-[#111827]">{b}</option>)}
@@ -282,8 +283,11 @@ export default function Home() {
                 {/* Model */}
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Modeli</label>
-                  <input type="text" placeholder="p.sh. A4, Golf..." value={selectedModel} onChange={(e) => setSelectedModel(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none placeholder-gray-500 hover:bg-white/[0.12] transition-colors" />
+                  <select value={selectedModel} onChange={(e) => setSelectedModel(e.target.value)}
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    <option value="" className="bg-[#111827]">{selectedBrand ? "Çdo model" : "Zgjidh markën"}</option>
+                    {getModelsForBrand(selectedBrand).map((m) => <option key={m} value={m} className="bg-[#111827]">{m}</option>)}
+                  </select>
                 </div>
                 {/* Year */}
                 <div>

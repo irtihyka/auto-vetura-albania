@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { getModelsForBrand } from "@/lib/brand-models";
 
 const carBrands = [
   "Të gjitha", "Audi", "BMW", "Citroën", "Dacia", "Fiat", "Ford", "Honda",
@@ -34,9 +35,10 @@ interface Car {
 }
 
 /* ── tiny active-filter count helper ── */
-function useActiveFilterCount(brand: string, fuel: string, year: string, query: string, vehicleType: string, bodyType: string, color: string) {
+function useActiveFilterCount(brand: string, fuel: string, year: string, query: string, vehicleType: string, bodyType: string, color: string, model: string) {
   let c = 0;
   if (brand !== "Të gjitha") c++;
+  if (model !== "Të gjitha") c++;
   if (fuel !== "Të gjitha") c++;
   if (year !== "Të gjitha") c++;
   if (vehicleType !== "Të gjitha") c++;
@@ -52,6 +54,7 @@ function SearchPageContent() {
   /* ── Initialize state directly from URL params to avoid race conditions ── */
   const [searchQuery, setSearchQuery] = useState(searchParams.get("search") || "");
   const [selectedBrand, setSelectedBrand] = useState(searchParams.get("brand") || "Të gjitha");
+  const [selectedModel, setSelectedModel] = useState(searchParams.get("model") || "Të gjitha");
   const [selectedFuel, setSelectedFuel] = useState(searchParams.get("fuel") || "Të gjitha");
   const [selectedYear, setSelectedYear] = useState(searchParams.get("yearFrom") || searchParams.get("yearTo") || "Të gjitha");
   const [sortBy, setSortBy] = useState(searchParams.get("sort") || "newest");
@@ -69,6 +72,7 @@ function SearchPageContent() {
   /* ── Sync state when URL params change (e.g. back/forward navigation) ── */
   useEffect(() => {
     setSelectedBrand(searchParams.get("brand") || "Të gjitha");
+    setSelectedModel(searchParams.get("model") || "Të gjitha");
     setSelectedFuel(searchParams.get("fuel") || "Të gjitha");
     setSelectedYear(searchParams.get("yearFrom") || searchParams.get("yearTo") || "Të gjitha");
     setSearchQuery(searchParams.get("search") || "");
@@ -80,13 +84,14 @@ function SearchPageContent() {
     setSelectedColor(searchParams.get("color") || "Të gjitha");
   }, [searchParams]);
 
-  const activeFilters = useActiveFilterCount(selectedBrand, selectedFuel, selectedYear, searchQuery, selectedVehicleType, selectedBodyType, selectedColor);
+  const activeFilters = useActiveFilterCount(selectedBrand, selectedFuel, selectedYear, searchQuery, selectedVehicleType, selectedBodyType, selectedColor, selectedModel);
 
   const fetchCars = useCallback(async () => {
     setLoading(true);
     try {
       const params = new URLSearchParams();
       if (selectedBrand !== "Të gjitha") params.set("brand", selectedBrand);
+      if (selectedModel !== "Të gjitha") params.set("model", selectedModel);
       if (selectedFuel !== "Të gjitha") params.set("fuel", selectedFuel);
       if (selectedYear !== "Të gjitha" && selectedYear !== "Më e vjetër") {
         params.set("yearFrom", selectedYear);
@@ -114,7 +119,7 @@ function SearchPageContent() {
     } finally {
       setLoading(false);
     }
-  }, [selectedBrand, selectedFuel, selectedYear, searchQuery, sortBy, priceFrom, priceTo, selectedVehicleType, selectedBodyType, selectedColor]);
+  }, [selectedBrand, selectedModel, selectedFuel, selectedYear, searchQuery, sortBy, priceFrom, priceTo, selectedVehicleType, selectedBodyType, selectedColor]);
 
   useEffect(() => {
     // Only debounce if there's a search query (user typing), otherwise fetch immediately
@@ -127,6 +132,7 @@ function SearchPageContent() {
 
   function clearFilters() {
     setSelectedBrand("Të gjitha");
+    setSelectedModel("Të gjitha");
     setSelectedFuel("Të gjitha");
     setSelectedYear("Të gjitha");
     setSearchQuery("");
@@ -141,6 +147,7 @@ function SearchPageContent() {
   /* ── filter chip data for the horizontal quick-filter bar ── */
   const chips: { label: string; active: boolean; clear: () => void }[] = [];
   if (selectedBrand !== "Të gjitha") chips.push({ label: selectedBrand, active: true, clear: () => setSelectedBrand("Të gjitha") });
+  if (selectedModel !== "Të gjitha") chips.push({ label: `Model: ${selectedModel}`, active: true, clear: () => setSelectedModel("Të gjitha") });
   if (selectedFuel !== "Të gjitha") chips.push({ label: selectedFuel, active: true, clear: () => setSelectedFuel("Të gjitha") });
   if (selectedYear !== "Të gjitha") chips.push({ label: `Viti: ${selectedYear}`, active: true, clear: () => setSelectedYear("Të gjitha") });
   if (selectedVehicleType !== "Të gjitha") chips.push({ label: selectedVehicleType, active: true, clear: () => setSelectedVehicleType("Të gjitha") });
@@ -348,8 +355,13 @@ function SearchPageContent() {
                     </div>
 
                     {/* Brand */}
-                    <FilterSelect label="Marka" value={selectedBrand} onChange={setSelectedBrand} options={carBrands}
+                    <FilterSelect label="Marka" value={selectedBrand} onChange={(v) => { setSelectedBrand(v); setSelectedModel("Të gjitha"); }} options={carBrands}
                       icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
+                    />
+                    {/* Model */}
+                    <FilterSelect label="Modeli" value={selectedModel} onChange={setSelectedModel}
+                      options={selectedBrand !== "Të gjitha" ? ["Të gjitha", ...getModelsForBrand(selectedBrand)] : ["Të gjitha"]}
+                      icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>}
                     />
                     {/* Vehicle Type */}
                     <FilterSelect label="Lloji i mjetit" value={selectedVehicleType} onChange={setSelectedVehicleType} options={vehicleTypes}

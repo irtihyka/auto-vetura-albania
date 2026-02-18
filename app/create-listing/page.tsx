@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { getModelsForBrand } from "@/lib/brand-models";
 
 const carBrands = [
   "Audi", "BMW", "Citroën", "Dacia", "Fiat", "Ford", "Honda", "Hyundai",
@@ -177,7 +178,7 @@ export default function CreateListingPage() {
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     required
                     value={formData.brand}
-                    onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, brand: e.target.value, model: "" })}
                   >
                     <option value="">Zgjidh markën</option>
                     {carBrands.map((b) => (
@@ -187,14 +188,17 @@ export default function CreateListingPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-bold mb-2">Modeli *</label>
-                  <input
-                    type="text"
-                    placeholder="p.sh. C-Class"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  <select
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     required
                     value={formData.model}
                     onChange={(e) => setFormData({ ...formData, model: e.target.value })}
-                  />
+                  >
+                    <option value="">{formData.brand ? "Zgjidh modelin" : "Zgjidh markën fillimisht"}</option>
+                    {getModelsForBrand(formData.brand).map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label className="block text-sm font-bold mb-2">Ngjyra</label>
