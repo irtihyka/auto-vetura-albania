@@ -1,0 +1,6 @@
+background/
+*.mov
+*.mp4
+*.db
+*.sqlite
+public/uploads/

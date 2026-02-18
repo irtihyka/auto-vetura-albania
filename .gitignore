@@ -53,3 +53,6 @@ next-env.d.ts
 /background/
 *.mov
 *.mp4
+
+.vercel
+.env*.local

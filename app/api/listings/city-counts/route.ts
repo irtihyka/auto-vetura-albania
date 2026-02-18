@@ -7,7 +7,7 @@ export async function GET() {
       by: ["location"],
       _count: { id: true },
       where: {
-        approved: true,
+        status: "active",
         location: { not: null },
       },
       orderBy: { _count: { id: "desc" } },
