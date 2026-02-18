@@ -11,7 +11,7 @@ const carBrands = [
   "Hyundai", "Kia", "Mazda", "Mercedes-Benz", "Nissan", "Opel",
   "Peugeot", "Renault", "Seat", "Skoda", "Toyota", "Volkswagen", "Volvo",
 ];
-const fuelTypes = ["Të gjitha", "Benzinë", "Diesel", "Hybrid", "Elektrike"];
+const fuelTypes = ["Të gjitha", "Benzinë", "Diesel", "Hibrid", "Elektrik", "Gaz/TNG", "Benzinë+Gaz", "Tjetër"];
 const yearOptions = ["Të gjitha", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "Më e vjetër"];
 const vehicleTypes = ["Të gjitha", "Makinë", "Motocikletë", "Kamion", "Furgon"];
 const bodyTypeOptions = ["Të gjitha", "Sedan", "SUV", "Hatchback", "Coupe", "Karavan", "Furgon", "Kombi", "Van", "Kabriolet"];
@@ -167,13 +167,13 @@ function SearchPageContent() {
           <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-yellow-500/[0.05] blur-[100px]" />
         </div>
 
-        {/* Mercedes image behind text */}
+        {/* Logo in background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
           <img
-            src="/images/mercedes-hero.png"
+            src="/images/logo.jpg"
             alt=""
             aria-hidden="true"
-            className="w-[900px] md:w-[1100px] lg:w-[1300px] max-w-none opacity-[0.12] object-contain translate-y-4"
+            className="w-[400px] md:w-[500px] lg:w-[600px] max-w-none opacity-[0.10] object-contain"
             draggable={false}
           />
         </div>

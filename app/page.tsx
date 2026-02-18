@@ -24,25 +24,54 @@ const allBrands = [
   "Kia", "Mazda", "Mercedes-Benz", "Nissan", "Opel", "Peugeot", "Renault",
   "Seat", "Skoda", "Toyota", "Volkswagen", "Volvo",
 ];
-const fuelTypes = ["Benzinë", "Diesel", "Hybrid", "Elektrike", "Gas"];
+const fuelTypes = ["Benzinë", "Diesel", "Hibrid", "Elektrik", "Gaz/TNG", "Benzinë+Gaz", "Tjetër"];
 const colorOptions = [
   "E bardhë", "E zezë", "Gri", "Argjendi", "Blu", "E kuqe",
   "Jeshile", "E verdhë", "Portokalli", "Kafe", "Bezhë", "E artë",
 ];
 const yearOptions = ["2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015"];
 const priceRanges = [
-  { label: "0 - 5,000 €", value: "0-5000" },
-  { label: "5,000 - 10,000 €", value: "5000-10000" },
-  { label: "10,000 - 20,000 €", value: "10000-20000" },
-  { label: "20,000 - 40,000 €", value: "20000-40000" },
-  { label: "40,000+ €", value: "40000-999999" },
+  { label: "1,000 €", value: "0-1000" },
+  { label: "2,000 €", value: "0-2000" },
+  { label: "3,000 €", value: "0-3000" },
+  { label: "4,000 €", value: "0-4000" },
+  { label: "5,000 €", value: "0-5000" },
+  { label: "6,000 €", value: "0-6000" },
+  { label: "7,000 €", value: "0-7000" },
+  { label: "8,000 €", value: "0-8000" },
+  { label: "9,000 €", value: "0-9000" },
+  { label: "10,000 €", value: "0-10000" },
+  { label: "15,000 €", value: "0-15000" },
+  { label: "20,000 €", value: "0-20000" },
+  { label: "25,000 €", value: "0-25000" },
+  { label: "30,000 €", value: "0-30000" },
+  { label: "35,000 €", value: "0-35000" },
+  { label: "40,000 €", value: "0-40000" },
+  { label: "45,000 €", value: "0-45000" },
+  { label: "50,000 €", value: "0-50000" },
+  { label: "50,000+ €", value: "50000-999999" },
 ];
 const kmRanges = [
-  { label: "0 - 10,000 km", value: "0-10000" },
-  { label: "10,000 - 50,000 km", value: "10000-50000" },
-  { label: "50,000 - 100,000 km", value: "50000-100000" },
-  { label: "100,000 - 200,000 km", value: "100000-200000" },
-  { label: "200,000+ km", value: "200000-999999" },
+  { label: "5,000 km", value: "0-5000" },
+  { label: "10,000 km", value: "0-10000" },
+  { label: "15,000 km", value: "0-15000" },
+  { label: "20,000 km", value: "0-20000" },
+  { label: "25,000 km", value: "0-25000" },
+  { label: "30,000 km", value: "0-30000" },
+  { label: "40,000 km", value: "0-40000" },
+  { label: "50,000 km", value: "0-50000" },
+  { label: "75,000 km", value: "0-75000" },
+  { label: "100,000 km", value: "0-100000" },
+  { label: "125,000 km", value: "0-125000" },
+  { label: "150,000 km", value: "0-150000" },
+  { label: "200,000 km", value: "0-200000" },
+  { label: "250,000 km", value: "0-250000" },
+  { label: "300,000 km", value: "0-300000" },
+  { label: "350,000 km", value: "0-350000" },
+  { label: "400,000 km", value: "0-400000" },
+  { label: "450,000 km", value: "0-450000" },
+  { label: "500,000 km", value: "0-500000" },
+  { label: "500,000+ km", value: "500000-9999999" },
 ];
 
 const carTypes = [
@@ -245,13 +274,13 @@ export default function Home() {
           <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-yellow-500/[0.05] blur-[100px]" />
         </div>
 
-        {/* Mercedes image behind text */}
+        {/* Logo in background */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
           <img
-            src="/images/mercedes-hero.png"
+            src="/images/logo.jpg"
             alt=""
             aria-hidden="true"
-            className="w-[900px] md:w-[1100px] lg:w-[1300px] max-w-none opacity-[0.12] object-contain translate-y-4"
+            className="w-[500px] md:w-[650px] lg:w-[800px] max-w-none opacity-[0.10] object-contain"
             draggable={false}
           />
         </div>

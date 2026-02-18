@@ -10,7 +10,7 @@ const carBrands = [
   "Seat", "Skoda", "Toyota", "Volkswagen", "Volvo",
 ];
 
-const fuelTypes = ["Benzinë", "Diesel", "Hibrid", "Elektrik", "Gas"];
+const fuelTypes = ["Benzinë", "Diesel", "Hibrid", "Elektrik", "Gaz/TNG", "Benzinë+Gaz", "Tjetër"];
 const transmissionTypes = ["Automatik", "Manual"];
 const bodyTypes = ["Sedan", "SUV", "Hatchback", "Coupe", "Kombi", "Van", "Kabriolet"];
 const vehicleTypeOptions = ["Makinë", "Motocikletë", "Kamion", "Furgon"];
