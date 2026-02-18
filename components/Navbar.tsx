@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+
 import { useState, useEffect, useRef } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -155,15 +155,17 @@ export default function Navbar() {
             </button>
 
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 relative group">
-              <Image
-                height={110}
-                width={110}
-                src="/images/Logo.png"
-                alt="Logo"
-                priority
-                className="transition-transform duration-300 group-hover:scale-105"
-              />
+            <Link href="/" className="flex-shrink-0 relative group flex items-center gap-2">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 transition-transform duration-300 group-hover:scale-105">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 16V8h4l2 4v4" />
+                </svg>
+              </div>
+              <span className="text-white font-black text-base sm:text-lg tracking-tight transition-colors duration-300">
+                Auto<span className="text-cyan-400">Vetura</span>
+              </span>
             </Link>
           </div>
 
@@ -384,8 +386,17 @@ export default function Navbar() {
         >
           {/* Sidebar header */}
           <div className="flex items-center justify-between h-[72px] px-5 border-b border-white/[0.06]">
-            <Link href="/" className="flex-shrink-0" onClick={() => setSidebarOpen(false)}>
-              <Image height={100} width={100} src="/images/Logo.png" alt="Logo" />
+            <Link href="/" className="flex-shrink-0 flex items-center gap-2" onClick={() => setSidebarOpen(false)}>
+              <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 16V8h4l2 4v4" />
+                </svg>
+              </div>
+              <span className="text-white font-black text-lg tracking-tight">
+                Auto<span className="text-cyan-400">Vetura</span>
+              </span>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
