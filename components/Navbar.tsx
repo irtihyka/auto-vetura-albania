@@ -136,7 +136,7 @@ export default function Navbar() {
         }`}
       >
         {/* Decorative gradient line at top */}
-        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-60" />
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-60" />
 
         <nav className="flex justify-between items-center max-w-screen-xl h-[72px] mx-auto px-5 text-white">
           {/* Left side: Hamburger + Logo */}
@@ -155,17 +155,12 @@ export default function Navbar() {
             </button>
 
             {/* Logo */}
-            <Link href="/" className="flex-shrink-0 relative group flex items-center gap-2">
-              <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 transition-transform duration-300 group-hover:scale-105">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 16V8h4l2 4v4" />
-                </svg>
-              </div>
-              <span className="text-white font-black text-base sm:text-lg tracking-tight transition-colors duration-300">
-                Auto<span className="text-cyan-400">Vetura</span>
-              </span>
+            <Link href="/" className="flex-shrink-0 relative group">
+              <img
+                src="/images/logo.jpg"
+                alt="Auto Vetura Albania"
+                className="h-10 sm:h-12 w-auto rounded-lg transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
           </div>
 
@@ -181,7 +176,7 @@ export default function Navbar() {
                     href={link.href}
                     className={`relative px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${
                       isActive
-                        ? "text-blue-400"
+                        ? "text-amber-400"
                         : "text-white/70 hover:text-white hover:bg-white/[0.08]"
                     }`}
                   >
@@ -206,7 +201,7 @@ export default function Navbar() {
                     href={link.href}
                     className={`relative px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 flex items-center gap-2.5 whitespace-nowrap ${
                       isActive
-                        ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25"
+                        ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/25"
                         : "text-white/70 hover:text-white hover:bg-white/[0.08]"
                     }`}
                   >
@@ -224,7 +219,7 @@ export default function Navbar() {
             {user && (
               <Link
                 href="/create-listing"
-                className="hidden md:flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="hidden md:flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
@@ -254,7 +249,7 @@ export default function Navbar() {
                       : "hover:bg-white/[0.08]"
                   }`}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-sm font-bold shadow-md shadow-blue-500/30">
+                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-sm font-bold shadow-md shadow-amber-500/30">
                     {user.name.charAt(0).toUpperCase()}
                   </div>
                   <span className="hidden md:block text-sm font-medium text-white/90">{user.name}</span>
@@ -274,9 +269,9 @@ export default function Navbar() {
                   )}
                   <div className="relative z-50 bg-[#1a1a2e] border border-white/[0.08] rounded-2xl shadow-2xl shadow-black/50 overflow-hidden">
                     {/* User info header */}
-                    <div className="px-4 py-3 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border-b border-white/[0.06]">
+                    <div className="px-4 py-3 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border-b border-white/[0.06]">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-base font-bold shadow-lg shadow-blue-500/20">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-base font-bold shadow-lg shadow-amber-500/20">
                           {user.name.charAt(0).toUpperCase()}
                         </div>
                         <div className="min-w-0">
@@ -298,7 +293,7 @@ export default function Navbar() {
                           href={item.href}
                           className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-colors ${
                             pathname === item.href
-                              ? "bg-blue-500/15 text-blue-400"
+                              ? "bg-amber-500/15 text-amber-400"
                               : "text-white/70 hover:bg-white/[0.06] hover:text-white"
                           }`}
                           onClick={() => setDropdownOpen(false)}
@@ -315,7 +310,7 @@ export default function Navbar() {
                           <div className="mx-3 my-1 h-px bg-white/[0.06]" />
                           <Link
                             href="/admin"
-                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-blue-400 hover:bg-blue-500/10 transition-colors"
+                            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-amber-400 hover:bg-amber-500/10 transition-colors"
                             onClick={() => setDropdownOpen(false)}
                           >
                             <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -386,17 +381,12 @@ export default function Navbar() {
         >
           {/* Sidebar header */}
           <div className="flex items-center justify-between h-[72px] px-5 border-b border-white/[0.06]">
-            <Link href="/" className="flex-shrink-0 flex items-center gap-2" onClick={() => setSidebarOpen(false)}>
-              <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 16V8h4l2 4v4" />
-                </svg>
-              </div>
-              <span className="text-white font-black text-lg tracking-tight">
-                Auto<span className="text-cyan-400">Vetura</span>
-              </span>
+            <Link href="/" className="flex-shrink-0" onClick={() => setSidebarOpen(false)}>
+              <img
+                src="/images/logo.jpg"
+                alt="Auto Vetura Albania"
+                className="h-12 w-auto rounded-lg"
+              />
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
@@ -410,9 +400,9 @@ export default function Navbar() {
 
           {/* User card (if logged in) */}
           {user && (
-            <div className="mx-4 mt-4 p-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-white/[0.06]">
+            <div className="mx-4 mt-4 p-3 rounded-xl bg-gradient-to-r from-amber-500/10 to-yellow-500/10 border border-white/[0.06]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-base font-bold shadow-lg shadow-blue-500/20">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-base font-bold shadow-lg shadow-amber-500/20">
                   {user.name.charAt(0).toUpperCase()}
                 </div>
                 <div className="min-w-0 flex-1">
@@ -435,7 +425,7 @@ export default function Navbar() {
                   onClick={() => setSidebarOpen(false)}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/20"
+                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/20"
                       : "text-white/60 hover:bg-white/[0.06] hover:text-white"
                   }`}
                 >
@@ -457,7 +447,7 @@ export default function Navbar() {
                   onClick={() => setSidebarOpen(false)}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/20"
+                      ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/20"
                       : "text-white/60 hover:bg-white/[0.06] hover:text-white"
                   }`}
                 >
@@ -483,7 +473,7 @@ export default function Navbar() {
                       onClick={() => setSidebarOpen(false)}
                       className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                         isActive
-                          ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/20"
+                          ? "bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-lg shadow-amber-500/20"
                           : "text-white/60 hover:bg-white/[0.06] hover:text-white"
                       }`}
                     >
@@ -501,7 +491,7 @@ export default function Navbar() {
                     <Link
                       href="/admin"
                       onClick={() => setSidebarOpen(false)}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-blue-400 hover:bg-blue-500/10 transition-colors"
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-amber-400 hover:bg-amber-500/10 transition-colors"
                     >
                       <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />

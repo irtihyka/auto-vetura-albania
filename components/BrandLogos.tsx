@@ -190,23 +190,23 @@ export const brandSvgs: Record<string, React.ReactNode> = {
 /* ── Brand colors for backgrounds ── */
 export const brandColors: Record<string, { bg: string; text: string; hover: string }> = {
   "Audi": { bg: "bg-gray-900", text: "text-white", hover: "hover:bg-gray-800" },
-  "BMW": { bg: "bg-blue-700", text: "text-white", hover: "hover:bg-blue-600" },
+  "BMW": { bg: "bg-amber-700", text: "text-white", hover: "hover:bg-amber-600" },
   "Mercedes-Benz": { bg: "bg-gray-800", text: "text-white", hover: "hover:bg-gray-700" },
-  "Volkswagen": { bg: "bg-blue-600", text: "text-white", hover: "hover:bg-blue-500" },
+  "Volkswagen": { bg: "bg-amber-600", text: "text-white", hover: "hover:bg-amber-500" },
   "Toyota": { bg: "bg-red-600", text: "text-white", hover: "hover:bg-red-500" },
-  "Ford": { bg: "bg-blue-500", text: "text-white", hover: "hover:bg-blue-400" },
+  "Ford": { bg: "bg-amber-500", text: "text-white", hover: "hover:bg-amber-400" },
   "Opel": { bg: "bg-yellow-500", text: "text-gray-900", hover: "hover:bg-yellow-400" },
   "Renault": { bg: "bg-yellow-400", text: "text-gray-900", hover: "hover:bg-yellow-300" },
-  "Peugeot": { bg: "bg-blue-800", text: "text-white", hover: "hover:bg-blue-700" },
+  "Peugeot": { bg: "bg-amber-800", text: "text-white", hover: "hover:bg-amber-700" },
   "Fiat": { bg: "bg-red-700", text: "text-white", hover: "hover:bg-red-600" },
-  "Hyundai": { bg: "bg-blue-500", text: "text-white", hover: "hover:bg-blue-400" },
+  "Hyundai": { bg: "bg-amber-500", text: "text-white", hover: "hover:bg-amber-400" },
   "Kia": { bg: "bg-red-500", text: "text-white", hover: "hover:bg-red-400" },
   "Skoda": { bg: "bg-green-700", text: "text-white", hover: "hover:bg-green-600" },
   "Honda": { bg: "bg-red-600", text: "text-white", hover: "hover:bg-red-500" },
   "Nissan": { bg: "bg-gray-700", text: "text-white", hover: "hover:bg-gray-600" },
-  "Volvo": { bg: "bg-blue-900", text: "text-white", hover: "hover:bg-blue-800" },
+  "Volvo": { bg: "bg-blue-900", text: "text-white", hover: "hover:bg-amber-800" },
   "Seat": { bg: "bg-red-600", text: "text-white", hover: "hover:bg-red-500" },
-  "Dacia": { bg: "bg-blue-600", text: "text-white", hover: "hover:bg-blue-500" },
+  "Dacia": { bg: "bg-amber-600", text: "text-white", hover: "hover:bg-amber-500" },
   "Mazda": { bg: "bg-red-700", text: "text-white", hover: "hover:bg-red-600" },
   "Citroën": { bg: "bg-red-500", text: "text-white", hover: "hover:bg-red-400" },
 };
@@ -260,9 +260,9 @@ export function BrandCard({
       className="group flex flex-col items-center gap-3 cursor-pointer"
     >
       <div className="relative">
-        <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md" />
+        <div className="absolute -inset-2 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-md" />
         <div
-          className={`${isLg ? "w-28 h-28 md:w-32 md:h-32 rounded-3xl" : "w-20 h-20 md:w-24 md:h-24 rounded-2xl"} bg-white border border-gray-100 hover:border-blue-200 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl p-3 overflow-hidden`}
+          className={`${isLg ? "w-28 h-28 md:w-32 md:h-32 rounded-3xl" : "w-20 h-20 md:w-24 md:h-24 rounded-2xl"} bg-white border border-gray-100 hover:border-amber-200 flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-2xl p-3 overflow-hidden`}
         >
           {logoFile ? (
             <img
@@ -277,7 +277,7 @@ export function BrandCard({
           )}
         </div>
       </div>
-      <span className={`${isLg ? "text-sm md:text-base" : "text-xs md:text-sm"} font-bold text-gray-700 group-hover:text-blue-500 transition-colors text-center leading-tight`}>
+      <span className={`${isLg ? "text-sm md:text-base" : "text-xs md:text-sm"} font-bold text-gray-700 group-hover:text-amber-500 transition-colors text-center leading-tight`}>
         {brand === "Mercedes-Benz" ? "Mercedes" : brand}
       </span>
     </Link>

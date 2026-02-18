@@ -60,7 +60,7 @@ export default function FavoritesPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500" />
       </div>
     );
   }
@@ -81,7 +81,7 @@ export default function FavoritesPage() {
           <p className="text-gray-500 mb-6">Shtypni ikonën e zemrës në çdo makinë për ta ruajtur këtu.</p>
           <Link
             href="/search"
-            className="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+            className="inline-block bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-600 transition-colors"
           >
             Kërko Makina
           </Link>
@@ -91,7 +91,7 @@ export default function FavoritesPage() {
           {favorites.map((fav) => (
             <div
               key={fav.id}
-              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-blue-200 transition-all duration-300 hover:-translate-y-1 relative"
+              className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-amber-200 transition-all duration-300 hover:-translate-y-1 relative"
             >
               {/* Remove button */}
               <button
@@ -137,13 +137,13 @@ export default function FavoritesPage() {
                     </div>
                   )}
                   <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-lg">
-                    <span className="text-lg font-bold text-blue-500">€{fav.listing.price.toLocaleString()}</span>
+                    <span className="text-lg font-bold text-amber-500">€{fav.listing.price.toLocaleString()}</span>
                   </div>
                 </div>
               </Link>
               <div className="p-5">
                 <Link href={`/listing/${fav.listing.id}`}>
-                  <h3 className="text-[15px] font-bold text-gray-900 mb-3 group-hover:text-blue-500 transition-colors truncate">
+                  <h3 className="text-[15px] font-bold text-gray-900 mb-3 group-hover:text-amber-500 transition-colors truncate">
                     {fav.listing.title}
                   </h3>
                 </Link>

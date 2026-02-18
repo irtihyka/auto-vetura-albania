@@ -90,7 +90,7 @@ export default function MyListingsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -104,7 +104,7 @@ export default function MyListingsPage() {
         </div>
         <Link
           href="/create-listing"
-          className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors text-center"
+          className="bg-amber-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-600 transition-colors text-center"
         >
           + Shto Njoftim të Ri
         </Link>
@@ -117,7 +117,7 @@ export default function MyListingsPage() {
           <p className="text-gray-500 mb-6">Shtoni njoftimin tuaj të parë për të shitur makinën tuaj.</p>
           <Link
             href="/create-listing"
-            className="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+            className="inline-block bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-600 transition-colors"
           >
             Shto Makinën Tënde
           </Link>
@@ -139,7 +139,7 @@ export default function MyListingsPage() {
               <p className="text-sm text-gray-500">Të Shitura</p>
             </div>
             <div className="bg-white rounded-lg border p-4 text-center">
-              <p className="text-2xl font-bold text-blue-500">{listings.reduce((a, l) => a + l.views, 0)}</p>
+              <p className="text-2xl font-bold text-amber-500">{listings.reduce((a, l) => a + l.views, 0)}</p>
               <p className="text-sm text-gray-500">Shikime</p>
             </div>
           </div>
@@ -179,10 +179,10 @@ export default function MyListingsPage() {
                 <div className="flex-1 p-4 flex flex-col justify-between">
                   <div>
                     <div className="flex items-start justify-between gap-2">
-                      <Link href={`/listing/${listing.id}`} className="hover:text-blue-500 transition-colors">
+                      <Link href={`/listing/${listing.id}`} className="hover:text-amber-500 transition-colors">
                         <h3 className="font-semibold text-lg text-gray-900">{listing.title}</h3>
                       </Link>
-                      <span className="text-xl font-bold text-blue-500 whitespace-nowrap">€{listing.price.toLocaleString()}</span>
+                      <span className="text-xl font-bold text-amber-500 whitespace-nowrap">€{listing.price.toLocaleString()}</span>
                     </div>
                     <p className="text-sm text-gray-500 mt-1">
                       {listing.brand} {listing.model} · {listing.year} · {listing.fuel} · {listing.km.toLocaleString()} km
@@ -191,7 +191,7 @@ export default function MyListingsPage() {
                       <span>👁 {listing.views} shikime</span>
                       <span>📅 {formatDate(listing.createdAt)}</span>
                       {listing.premium && <span className="text-amber-600 font-semibold">★ Premium</span>}
-                      {listing.featured && <span className="text-blue-500">⭐ E veçantë</span>}
+                      {listing.featured && <span className="text-amber-500">⭐ E veçantë</span>}
                     </div>
                   </div>
 

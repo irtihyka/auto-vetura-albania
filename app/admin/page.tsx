@@ -113,7 +113,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -143,7 +143,7 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab(tab.key)}
             className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium transition-colors ${
               activeTab === tab.key
-                ? "bg-blue-500 text-white shadow-sm"
+                ? "bg-amber-500 text-white shadow-sm"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
@@ -159,14 +159,14 @@ export default function AdminDashboard() {
           {/* Key Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {[
-              { label: "Përdorues", value: stats.totalUsers, sub: `+${stats.newUsersThisWeek} këtë javë`, color: "text-blue-600", bg: "bg-blue-50", icon: "👥", link: "/admin/users" },
+              { label: "Përdorues", value: stats.totalUsers, sub: `+${stats.newUsersThisWeek} këtë javë`, color: "text-amber-600", bg: "bg-amber-50", icon: "👥", link: "/admin/users" },
               { label: "Njoftime Aktive", value: stats.activeListings, sub: `${stats.totalListings} gjithsej`, color: "text-green-600", bg: "bg-green-50", icon: "🚗", link: "/admin/listings" },
               { label: "Të Shitura", value: stats.soldListings, sub: `${stats.totalListings > 0 ? Math.round((stats.soldListings / stats.totalListings) * 100) : 0}% e totalit`, color: "text-purple-600", bg: "bg-purple-50", icon: "✅", link: "/admin/listings" },
               { label: "Premium", value: stats.premiumListings, sub: `${stats.featuredListings} featured`, color: "text-amber-600", bg: "bg-amber-50", icon: "⭐", link: "/admin/listings" },
               { label: "Shikime Totale", value: stats.totalViews.toLocaleString(), sub: `${stats.totalClicks.toLocaleString()} klikime`, color: "text-indigo-600", bg: "bg-indigo-50", icon: "👁" },
               { label: "Konvertimi", value: `${stats.conversionRate}%`, sub: "klikime / shikime", color: "text-teal-600", bg: "bg-teal-50", icon: "📊" },
               { label: "Mesazhe", value: stats.totalMessages, sub: `${stats.unreadMessages} të palexuara`, color: "text-red-600", bg: "bg-red-50", icon: "✉️", link: "/admin/messages" },
-              { label: "Raporte", value: stats.totalReports, sub: `${stats.pendingReports} në pritje`, color: "text-blue-600", bg: "bg-blue-50", icon: "⚠️", link: "/admin/reports" },
+              { label: "Raporte", value: stats.totalReports, sub: `${stats.pendingReports} në pritje`, color: "text-amber-600", bg: "bg-amber-50", icon: "⚠️", link: "/admin/reports" },
             ].map((card) => {
               const content = (
                 <div className={`${card.bg} rounded-xl p-4 border border-transparent hover:border-gray-200 transition-colors h-full`}>
@@ -201,13 +201,13 @@ export default function AdminDashboard() {
                 </Link>
               )}
               {alerts.unreadMessages > 0 && (
-                <Link href="/admin/messages" className="flex-1 bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-center gap-3 hover:bg-blue-100 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-sm">
+                <Link href="/admin/messages" className="flex-1 bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-center gap-3 hover:bg-amber-100 transition-colors">
+                  <div className="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-sm">
                     {alerts.unreadMessages}
                   </div>
                   <div>
-                    <p className="font-semibold text-blue-800">Mesazhe të palexuara</p>
-                    <p className="text-xs text-blue-600">Duhet t&apos;i shikoni sa më parë</p>
+                    <p className="font-semibold text-amber-800">Mesazhe të palexuara</p>
+                    <p className="text-xs text-amber-600">Duhet t&apos;i shikoni sa më parë</p>
                   </div>
                 </Link>
               )}
@@ -220,19 +220,19 @@ export default function AdminDashboard() {
               <div className="flex items-center justify-between mb-4">
                 <h2 className="font-bold text-gray-900">Vizitorë (30 ditë)</h2>
                 <div className="flex items-center gap-4 text-xs text-gray-500">
-                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-500 inline-block"></span> Shikime</span>
-                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-500 inline-block"></span> Klikime</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-500 inline-block"></span> Shikime</span>
+                  <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-500 inline-block"></span> Klikime</span>
                 </div>
               </div>
               <div className="flex items-end gap-[2px] h-36">
                 {dailyChartData.slice(-30).map((day) => (
                   <div key={day.date} className="flex-1 flex flex-col items-center group relative gap-[1px]">
                     <div
-                      className="w-full bg-blue-400 rounded-t-sm min-h-[1px] transition-all hover:bg-blue-500"
+                      className="w-full bg-amber-400 rounded-t-sm min-h-[1px] transition-all hover:bg-amber-500"
                       style={{ height: `${(day.views / maxDailyViews) * 70}%` }}
                     />
                     <div
-                      className="w-full bg-blue-400 rounded-t-sm min-h-[1px]"
+                      className="w-full bg-amber-400 rounded-t-sm min-h-[1px]"
                       style={{ height: `${maxDailyViews > 0 ? (day.clicks / maxDailyViews) * 70 : 0}%` }}
                     />
                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
@@ -254,7 +254,7 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-xl shadow-sm border">
               <div className="p-4 border-b flex items-center justify-between">
                 <h2 className="font-semibold text-gray-800">Njoftimet e Fundit</h2>
-                <Link href="/admin/listings" className="text-sm text-blue-500 hover:text-blue-600">
+                <Link href="/admin/listings" className="text-sm text-amber-500 hover:text-amber-600">
                   Shiko të gjitha →
                 </Link>
               </div>
@@ -270,7 +270,7 @@ export default function AdminDashboard() {
                       <p className="text-sm text-gray-500">{listing.user.name} · {listing.views} shikime</p>
                     </div>
                     <div className="text-right ml-4">
-                      <p className="font-bold text-blue-500">€{listing.price.toLocaleString()}</p>
+                      <p className="font-bold text-amber-500">€{listing.price.toLocaleString()}</p>
                       <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full ${
                         listing.status === "active" ? "bg-green-100 text-green-700" :
                         listing.status === "sold" ? "bg-purple-100 text-purple-700" :
@@ -289,7 +289,7 @@ export default function AdminDashboard() {
             <div className="bg-white rounded-xl shadow-sm border">
               <div className="p-4 border-b flex items-center justify-between">
                 <h2 className="font-semibold text-gray-800">Përdoruesit e Fundit</h2>
-                <Link href="/admin/users" className="text-sm text-blue-500 hover:text-blue-600">
+                <Link href="/admin/users" className="text-sm text-amber-500 hover:text-amber-600">
                   Shiko të gjithë →
                 </Link>
               </div>
@@ -307,7 +307,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className="text-right">
                       <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${
-                        user.role === "admin" ? "bg-blue-100 text-blue-700" : "bg-gray-100 text-gray-700"
+                        user.role === "admin" ? "bg-amber-100 text-amber-700" : "bg-gray-100 text-gray-700"
                       }`}>
                         {user.role === "admin" ? "Admin" : "Përdorues"}
                       </span>
@@ -354,7 +354,7 @@ export default function AdminDashboard() {
                   <span className="w-20 text-sm font-medium text-gray-700 text-right flex-shrink-0 truncate">{b.brand}</span>
                   <div className="flex-1 bg-gray-100 rounded-full h-6 overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full flex items-center justify-end px-2 transition-all"
+                      className="h-full bg-gradient-to-r from-amber-400 to-amber-500 rounded-full flex items-center justify-end px-2 transition-all"
                       style={{ width: `${Math.max((b.count / maxBrandCount) * 100, 8)}%` }}
                     >
                       <span className="text-[10px] font-bold text-white">{b.count}</span>
@@ -375,8 +375,8 @@ export default function AdminDashboard() {
                   const colors: Record<string, string> = {
                     "Benzinë": "from-green-400 to-green-500",
                     "Diesel": "from-gray-500 to-gray-600",
-                    "Hibrid": "from-blue-400 to-blue-500",
-                    "Elektrik": "from-cyan-400 to-cyan-500",
+                    "Hibrid": "from-amber-400 to-amber-500",
+                    "Elektrik": "from-yellow-400 to-yellow-500",
                     "Gas": "from-amber-400 to-amber-500",
                   };
                   return (
@@ -421,8 +421,8 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-xl shadow-sm border p-6">
             <h2 className="font-bold text-gray-900 mb-4">Aktiviteti Javor</h2>
             <div className="grid grid-cols-3 gap-4 text-center">
-              <div className="bg-blue-50 rounded-xl p-4">
-                <p className="text-3xl font-bold text-blue-600">{stats.newUsersThisWeek}</p>
+              <div className="bg-amber-50 rounded-xl p-4">
+                <p className="text-3xl font-bold text-amber-600">{stats.newUsersThisWeek}</p>
                 <p className="text-xs text-gray-600 mt-1">Përdorues të Rinj</p>
               </div>
               <div className="bg-green-50 rounded-xl p-4">
@@ -452,12 +452,12 @@ export default function AdminDashboard() {
                 {alerts.pendingReports > 0 ? `${alerts.pendingReports} në pritje` : "Asnjë"}
               </p>
             </div>
-            <div className={`rounded-xl border p-4 ${alerts.unreadMessages > 0 ? "bg-blue-50 border-blue-200" : "bg-green-50 border-green-200"}`}>
+            <div className={`rounded-xl border p-4 ${alerts.unreadMessages > 0 ? "bg-amber-50 border-amber-200" : "bg-green-50 border-green-200"}`}>
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-lg">{alerts.unreadMessages > 0 ? "🔵" : "✅"}</span>
                 <span className="text-sm font-semibold text-gray-800">Mesazhe</span>
               </div>
-              <p className={`text-xl font-bold ${alerts.unreadMessages > 0 ? "text-blue-600" : "text-green-600"}`}>
+              <p className={`text-xl font-bold ${alerts.unreadMessages > 0 ? "text-amber-600" : "text-green-600"}`}>
                 {alerts.unreadMessages > 0 ? `${alerts.unreadMessages} të palexuara` : "Asnjë"}
               </p>
             </div>
@@ -484,7 +484,7 @@ export default function AdminDashboard() {
                 <span className="text-red-500">⚠️</span>
                 Raporte në Pritje
               </h2>
-              <Link href="/admin/reports" className="text-sm text-blue-500 hover:text-blue-600">
+              <Link href="/admin/reports" className="text-sm text-amber-500 hover:text-amber-600">
                 Shiko të gjitha →
               </Link>
             </div>
@@ -519,7 +519,7 @@ export default function AdminDashboard() {
                               nga {report.user.name} · {new Date(report.createdAt).toLocaleDateString("sq-AL")}
                             </span>
                           </div>
-                          <Link href={`/listing/${report.listing.id}`} className="text-sm font-semibold text-gray-900 hover:text-blue-500">
+                          <Link href={`/listing/${report.listing.id}`} className="text-sm font-semibold text-gray-900 hover:text-amber-500">
                             {report.listing.title}
                           </Link>
                           {report.details && (
@@ -528,7 +528,7 @@ export default function AdminDashboard() {
                         </div>
                         <Link
                           href="/admin/reports"
-                          className="text-xs bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg font-medium hover:bg-blue-200 flex-shrink-0"
+                          className="text-xs bg-amber-100 text-amber-700 px-3 py-1.5 rounded-lg font-medium hover:bg-amber-200 flex-shrink-0"
                         >
                           Shqyrto
                         </Link>

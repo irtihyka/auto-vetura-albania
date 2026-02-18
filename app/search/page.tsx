@@ -156,8 +156,8 @@ function SearchPageContent() {
       <section className="w-full relative overflow-hidden bg-[#070b14] pt-28 pb-16">
         {/* Ambient bg */}
         <div className="absolute inset-0">
-          <div className="absolute top-[-30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-blue-500/[0.07] blur-[120px]" />
-          <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-500/[0.05] blur-[100px]" />
+          <div className="absolute top-[-30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-500/[0.07] blur-[120px]" />
+          <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-yellow-500/[0.05] blur-[100px]" />
         </div>
 
         {/* Mercedes image behind text */}
@@ -177,7 +177,7 @@ function SearchPageContent() {
             className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-6"
             style={{ animation: "heroFadeUp 0.5s ease-out both" }}
           >
-            <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <span className="text-xs text-gray-300 font-medium tracking-wide">Kërkim i avancuar</span>
@@ -187,7 +187,7 @@ function SearchPageContent() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 tracking-tight"
             style={{ animation: "heroFadeUp 0.6s ease-out 0.1s both" }}
           >
-            Gjeni Makinën <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Perfekte</span>
+            Gjeni Makinën <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-400">Perfekte</span>
           </h1>
 
           <p
@@ -203,19 +203,19 @@ function SearchPageContent() {
             style={{ animation: "heroFadeUp 0.6s ease-out 0.35s both" }}
           >
             {/* outer glow ring */}
-            <div className={`absolute -inset-1 rounded-2xl transition-opacity duration-500 bg-gradient-to-r from-blue-500/40 to-cyan-500/40 ${searchFocused ? "opacity-100" : "opacity-0"}`} style={{ filter: 'blur(8px)' }} />
+            <div className={`absolute -inset-1 rounded-2xl transition-opacity duration-500 bg-gradient-to-r from-amber-500/40 to-yellow-500/40 ${searchFocused ? "opacity-100" : "opacity-0"}`} style={{ filter: 'blur(8px)' }} />
             <div className="relative flex items-center">
               <input
                 type="text"
                 placeholder="Kërko sipas emrit, markës ose modelit..."
-                className="w-full bg-[#1a1a2e]/80 text-white placeholder-gray-400 border border-white/15 rounded-2xl py-4 pl-14 pr-5 text-lg focus:outline-none focus:border-blue-400/50 transition-colors"
+                className="w-full bg-[#1a1a2e]/80 text-white placeholder-gray-400 border border-white/15 rounded-2xl py-4 pl-14 pr-5 text-lg focus:outline-none focus:border-amber-400/50 transition-colors"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setSearchFocused(true)}
                 onBlur={() => setSearchFocused(false)}
               />
               <svg
-                className={`absolute left-5 w-5 h-5 transition-all duration-200 ${searchFocused ? "text-blue-400 scale-110" : "text-gray-400"}`}
+                className={`absolute left-5 w-5 h-5 transition-all duration-200 ${searchFocused ? "text-amber-400 scale-110" : "text-gray-400"}`}
                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -244,7 +244,7 @@ function SearchPageContent() {
                 onClick={() => setSelectedBrand(selectedBrand === b ? "Të gjitha" : b)}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 border ${
                   selectedBrand === b
-                    ? "bg-blue-500 border-blue-500 text-white shadow-lg shadow-blue-500/20"
+                    ? "bg-amber-500 border-amber-500 text-white shadow-lg shadow-amber-500/20"
                     : "bg-white/5 border-white/10 text-gray-300 hover:bg-white/10 hover:border-white/20"
                 }`}
               >
@@ -275,7 +275,7 @@ function SearchPageContent() {
               </svg>
               Filtrat
               {activeFilters > 0 && (
-                <span className="ml-1 w-5 h-5 bg-blue-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                <span className="ml-1 w-5 h-5 bg-amber-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                   {activeFilters}
                 </span>
               )}
@@ -293,7 +293,7 @@ function SearchPageContent() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.85 }}
                     onClick={chip.clear}
-                    className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-600 border border-blue-200 text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-blue-100 transition-colors"
+                    className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-600 border border-amber-200 text-xs font-semibold px-3 py-1.5 rounded-full hover:bg-amber-100 transition-colors"
                   >
                     {chip.label}
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -313,7 +313,7 @@ function SearchPageContent() {
             <div className="ml-auto flex items-center gap-2">
               <label className="text-xs text-gray-400 hidden sm:block">Rendit:</label>
               <select
-                className="bg-white border border-gray-200 rounded-lg text-sm py-2 pl-3 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-sm"
+                className="bg-white border border-gray-200 rounded-lg text-sm py-2 pl-3 pr-8 focus:outline-none focus:ring-2 focus:ring-amber-400 shadow-sm"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
               >
@@ -335,7 +335,7 @@ function SearchPageContent() {
                   <div className="bg-white rounded-2xl shadow-md border border-gray-100 p-7 sticky top-24 space-y-5">
                     <div className="flex items-center justify-between pb-4 border-b border-gray-100">
                       <h3 className="text-lg font-extrabold text-gray-900 flex items-center gap-2.5">
-                        <div className="w-9 h-9 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-sm">
+                        <div className="w-9 h-9 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-sm">
                           <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                             <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z" />
                           </svg>
@@ -343,7 +343,7 @@ function SearchPageContent() {
                         Filtrat
                       </h3>
                       {activeFilters > 0 && (
-                        <span className="bg-blue-100 text-blue-600 text-xs font-bold px-3 py-1 rounded-full">{activeFilters} aktive</span>
+                        <span className="bg-amber-100 text-amber-600 text-xs font-bold px-3 py-1 rounded-full">{activeFilters} aktive</span>
                       )}
                     </div>
 
@@ -375,7 +375,7 @@ function SearchPageContent() {
                     {/* Price Range */}
                     <div>
                       <label className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2.5">
-                        <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         Çmimi (€)
@@ -386,7 +386,7 @@ function SearchPageContent() {
                           placeholder="Nga"
                           value={priceFrom}
                           onChange={(e) => setPriceFrom(e.target.value)}
-                          className="w-full py-3 px-4 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-300 transition-all placeholder-gray-400"
+                          className="w-full py-3 px-4 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-300 transition-all placeholder-gray-400"
                         />
                         <span className="text-gray-400 font-medium">—</span>
                         <input
@@ -394,7 +394,7 @@ function SearchPageContent() {
                           placeholder="Deri"
                           value={priceTo}
                           onChange={(e) => setPriceTo(e.target.value)}
-                          className="w-full py-3 px-4 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-300 transition-all placeholder-gray-400"
+                          className="w-full py-3 px-4 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-300 transition-all placeholder-gray-400"
                         />
                       </div>
                     </div>
@@ -425,7 +425,7 @@ function SearchPageContent() {
                   className="bg-white rounded-2xl border border-gray-100 p-16 text-center"
                 >
                   <div
-                    className="w-14 h-14 mx-auto mb-5 border-4 border-blue-200 border-t-blue-500 rounded-full animate-spin"
+                    className="w-14 h-14 mx-auto mb-5 border-4 border-amber-200 border-t-amber-500 rounded-full animate-spin"
                   />
                   <p className="text-gray-400 font-medium">Duke kërkuar makina...</p>
                 </div>
@@ -447,7 +447,7 @@ function SearchPageContent() {
                   <p className="text-gray-400 mb-6 max-w-sm mx-auto">Provoni të ndryshoni filtrat ose kërkimin për rezultate më të mira.</p>
                   <button
                     onClick={clearFilters}
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold px-6 py-2.5 rounded-xl hover:shadow-lg hover:shadow-blue-500/20 transition-shadow"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold px-6 py-2.5 rounded-xl hover:shadow-lg hover:shadow-amber-500/20 transition-shadow"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -472,7 +472,7 @@ function SearchPageContent() {
                       >
                         <Link
                           href={`/listing/${car.id}`}
-                          className={`group block bg-white rounded-2xl overflow-hidden border ${car.premium ? 'border-amber-300 ring-2 ring-amber-200/50 shadow-amber-100 shadow-lg' : 'border-gray-100 hover:border-blue-200'} transition-[border-color,transform] duration-300 hover:-translate-y-1`}
+                          className={`group block bg-white rounded-2xl overflow-hidden border ${car.premium ? 'border-amber-300 ring-2 ring-amber-200/50 shadow-amber-100 shadow-lg' : 'border-gray-100 hover:border-amber-200'} transition-[border-color,transform] duration-300 hover:-translate-y-1`}
                         >
                           {/* image */}
                           <div className="relative h-56 sm:h-64 bg-gray-100 overflow-hidden">
@@ -499,20 +499,20 @@ function SearchPageContent() {
                             )}
                             {/* fuel badge */}
                             <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-gray-700 text-xs font-semibold px-3 py-1 rounded-full border border-gray-200/60 flex items-center gap-1">
-                              <svg className="w-3 h-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-3 h-3 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                               </svg>
                               {car.fuel}
                             </span>
                             {/* price badge */}
                             <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm px-5 py-2 rounded-full shadow-lg">
-                              <span className="text-xl font-extrabold text-blue-500">€{car.price.toLocaleString()}</span>
+                              <span className="text-xl font-extrabold text-amber-500">€{car.price.toLocaleString()}</span>
                             </div>
                           </div>
 
                           {/* content */}
                           <div className="p-6">
-                            <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-500 transition-colors truncate">
+                            <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-amber-500 transition-colors truncate">
                               {car.title}
                             </h3>
                             <div className="flex flex-wrap gap-2 mb-5">
@@ -530,7 +530,7 @@ function SearchPageContent() {
                               </span>
                             </div>
                             <div className="flex items-center justify-between">
-                              <span className="text-base font-semibold text-blue-500 group-hover:text-blue-600 transition-colors flex items-center gap-1.5">
+                              <span className="text-base font-semibold text-amber-500 group-hover:text-amber-600 transition-colors flex items-center gap-1.5">
                                 Shiko Detajet
                                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -556,7 +556,7 @@ export default function SearchPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-blue-400 border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-amber-400 border-t-transparent rounded-full animate-spin" />
       </div>
     }>
       <SearchPageContent />
@@ -581,13 +581,13 @@ function FilterSelect({
   return (
     <div>
       <label className="flex items-center gap-2 text-sm font-bold text-gray-700 mb-2.5">
-        {icon && <span className="text-blue-500">{icon}</span>}
+        {icon && <span className="text-amber-500">{icon}</span>}
         {label}
       </label>
       <select
-        className={`w-full py-3 px-4 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all cursor-pointer appearance-none bg-[length:20px] bg-[right_12px_center] bg-no-repeat ${
+        className={`w-full py-3 px-4 rounded-xl border text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all cursor-pointer appearance-none bg-[length:20px] bg-[right_12px_center] bg-no-repeat ${
           value !== "Të gjitha"
-            ? "border-blue-300 bg-blue-50 text-blue-700 shadow-sm shadow-blue-100"
+            ? "border-amber-300 bg-amber-50 text-amber-700 shadow-sm shadow-amber-100"
             : "border-gray-200 bg-white text-gray-700 hover:border-gray-300"
         }`}
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239ca3af' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")` }}

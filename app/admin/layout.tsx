@@ -44,7 +44,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -68,7 +68,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         }`}
       >
         <div className="p-6 border-b border-white/10">
-          <Link href="/" className="text-xl font-bold text-blue-400">
+          <Link href="/" className="text-xl font-bold text-amber-400">
             Auto Vetura Albania
           </Link>
           <p className="text-sm text-gray-400 mt-1">Admin Panel</p>
@@ -84,7 +84,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                   isActive
-                    ? "bg-blue-500 text-white"
+                    ? "bg-amber-500 text-white"
                     : "text-gray-300 hover:bg-white/10 hover:text-white"
                 }`}
               >
@@ -97,7 +97,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-sm font-bold">
+            <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-sm font-bold">
               {user.name.charAt(0).toUpperCase()}
             </div>
             <div>

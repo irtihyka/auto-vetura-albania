@@ -35,13 +35,13 @@ interface Pagination {
 const reasonLabels: Record<string, { label: string; color: string }> = {
   spam: { label: "Spam", color: "bg-yellow-100 text-yellow-700" },
   fraud: { label: "Mashtrim / Fake", color: "bg-red-100 text-red-700" },
-  duplicate: { label: "I Dyfishuar", color: "bg-blue-100 text-blue-700" },
+  duplicate: { label: "I Dyfishuar", color: "bg-amber-100 text-amber-700" },
   inappropriate: { label: "Papërshtatshëm", color: "bg-purple-100 text-purple-700" },
   other: { label: "Tjetër", color: "bg-gray-100 text-gray-700" },
 };
 
 const statusLabels: Record<string, { label: string; color: string }> = {
-  pending: { label: "Në Pritje", color: "bg-blue-100 text-blue-700" },
+  pending: { label: "Në Pritje", color: "bg-amber-100 text-amber-700" },
   reviewed: { label: "Shqyrtuar", color: "bg-green-100 text-green-700" },
   dismissed: { label: "Refuzuar", color: "bg-gray-100 text-gray-700" },
 };
@@ -119,7 +119,7 @@ export default function AdminReportsPage() {
       <div className="bg-white rounded-xl shadow-sm border p-4">
         <div className="flex flex-col sm:flex-row gap-3">
           <select
-            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none flex-1"
+            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none flex-1"
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value); setPage(1); }}
           >
@@ -129,7 +129,7 @@ export default function AdminReportsPage() {
             <option value="dismissed">Refuzuar</option>
           </select>
           <select
-            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none flex-1"
+            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none flex-1"
             value={reasonFilter}
             onChange={(e) => { setReasonFilter(e.target.value); setPage(1); }}
           >
@@ -147,7 +147,7 @@ export default function AdminReportsPage() {
       <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-500"></div>
           </div>
         ) : reports.length === 0 ? (
           <div className="text-center py-20">
@@ -198,7 +198,7 @@ export default function AdminReportsPage() {
                         <div className="min-w-0">
                           <Link
                             href={`/listing/${report.listing.id}`}
-                            className="font-semibold text-gray-900 hover:text-blue-500 truncate block"
+                            className="font-semibold text-gray-900 hover:text-amber-500 truncate block"
                             target="_blank"
                           >
                             {report.listing.title}
@@ -251,7 +251,7 @@ export default function AdminReportsPage() {
                         <button
                           onClick={() => updateReportStatus(report.id, "pending")}
                           disabled={updating === report.id}
-                          className="px-4 py-2 text-xs font-medium bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 disabled:opacity-50 transition-colors"
+                          className="px-4 py-2 text-xs font-medium bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 disabled:opacity-50 transition-colors"
                         >
                           ↩️ Rihap
                         </button>

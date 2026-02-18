@@ -96,8 +96,8 @@ function LoginContent() {
       {/* Dark overlay so form is readable */}
       <div className="absolute inset-0 bg-[#070b14]/75" />
       {/* Ambient glow effects */}
-      <div className="absolute bottom-0 left-[20%] w-[600px] h-[600px] rounded-full bg-blue-500/[0.06] blur-[150px]" />
-      <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] rounded-full bg-cyan-500/[0.04] blur-[120px]" />
+      <div className="absolute bottom-0 left-[20%] w-[600px] h-[600px] rounded-full bg-amber-500/[0.06] blur-[150px]" />
+      <div className="absolute top-[10%] right-[10%] w-[400px] h-[400px] rounded-full bg-yellow-500/[0.04] blur-[120px]" />
 
       {/* ═══════════════════════════════════════════════════════
           CENTERED FORM CARD
@@ -108,14 +108,14 @@ function LoginContent() {
           {/* Logo */}
           <div className="flex items-center justify-center gap-3 mb-5 sm:mb-8">
             <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg">
                 <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10" />
                 </svg>
               </div>
-              <span className="text-white font-black text-xl tracking-tight group-hover:text-cyan-400 transition-colors">
-                Auto<span className="text-cyan-400 group-hover:text-white transition-colors">Vetura</span>
+              <span className="text-white font-black text-xl tracking-tight group-hover:text-yellow-400 transition-colors">
+                Auto<span className="text-yellow-400 group-hover:text-white transition-colors">Vetura</span>
               </span>
             </Link>
           </div>
@@ -125,7 +125,7 @@ function LoginContent() {
             <button
               className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all duration-300 ${
                 activeTab === "login"
-                  ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg shadow-amber-500/25"
                   : "text-gray-400 hover:text-white"
               }`}
               onClick={() => { setActiveTab("login"); setError(""); setSuccess(""); }}
@@ -135,7 +135,7 @@ function LoginContent() {
             <button
               className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all duration-300 ${
                 activeTab === "register"
-                  ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25"
+                  ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-lg shadow-amber-500/25"
                   : "text-gray-400 hover:text-white"
               }`}
               onClick={() => { setActiveTab("register"); setError(""); setSuccess(""); }}
@@ -184,7 +184,7 @@ function LoginContent() {
                       type="text"
                       id="login-email"
                       placeholder="email@shembull.com"
-                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
+                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
                       value={loginData.email}
                       onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
                       required
@@ -207,7 +207,7 @@ function LoginContent() {
                       type={showPassword ? "text" : "password"}
                       id="login-password"
                       placeholder="Shkruani fjalëkalimin tuaj"
-                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-12 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
+                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-12 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
                       value={loginData.password}
                       onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
                       required
@@ -241,7 +241,7 @@ function LoginContent() {
                         checked={rememberMe}
                         onChange={(e) => setRememberMe(e.target.checked)}
                       />
-                      <div className="w-5 h-5 rounded-md border border-white/[0.15] bg-white/[0.05] peer-checked:bg-blue-500 peer-checked:border-blue-500 transition-all flex items-center justify-center">
+                      <div className="w-5 h-5 rounded-md border border-white/[0.15] bg-white/[0.05] peer-checked:bg-amber-500 peer-checked:border-amber-500 transition-all flex items-center justify-center">
                         {rememberMe && (
                           <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -251,7 +251,7 @@ function LoginContent() {
                     </div>
                     <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Më mbaj mend</span>
                   </label>
-                  <Link href="/forgot-password" className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                  <Link href="/forgot-password" className="text-sm text-amber-400 hover:text-amber-300 transition-colors">
                     Keni harruar fjalëkalimin?
                   </Link>
                 </div>
@@ -260,7 +260,7 @@ function LoginContent() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-3.5 rounded-xl text-sm shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/40 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-bold py-3.5 rounded-xl text-sm shadow-lg shadow-amber-500/20 transition-all duration-200 hover:shadow-amber-500/40 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -287,7 +287,7 @@ function LoginContent() {
                 Nuk keni llogari?{" "}
                 <button
                   onClick={() => { setActiveTab("register"); setError(""); setSuccess(""); }}
-                  className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+                  className="text-amber-400 hover:text-amber-300 font-semibold transition-colors"
                 >
                   Regjistrohu tani
                 </button>
@@ -315,7 +315,7 @@ function LoginContent() {
                       type="text"
                       id="reg-name"
                       placeholder="Emri juaj i plotë"
-                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
+                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
                       value={registerData.name}
                       onChange={(e) => setRegisterData({ ...registerData, name: e.target.value })}
                       required
@@ -338,7 +338,7 @@ function LoginContent() {
                       type="email"
                       id="reg-email"
                       placeholder="email@shembull.com"
-                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
+                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
                       value={registerData.email}
                       onChange={(e) => setRegisterData({ ...registerData, email: e.target.value })}
                       required
@@ -361,7 +361,7 @@ function LoginContent() {
                       type="tel"
                       id="reg-phone"
                       placeholder="+355 6X XXX XXXX"
-                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
+                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
                       value={registerData.phone}
                       onChange={(e) => setRegisterData({ ...registerData, phone: e.target.value })}
                     />
@@ -383,7 +383,7 @@ function LoginContent() {
                       type="password"
                       id="reg-password"
                       placeholder="Krijoni një fjalëkalim"
-                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
+                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
                       value={registerData.password}
                       onChange={(e) => setRegisterData({ ...registerData, password: e.target.value })}
                       required
@@ -406,7 +406,7 @@ function LoginContent() {
                       type="password"
                       id="reg-confirm"
                       placeholder="Përsëritni fjalëkalimin"
-                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
+                      className="w-full bg-white/[0.06] border border-white/[0.08] text-white rounded-xl pl-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/30 placeholder-gray-600 hover:bg-white/[0.08] transition-all"
                       value={registerData.confirmPassword}
                       onChange={(e) => setRegisterData({ ...registerData, confirmPassword: e.target.value })}
                       required
@@ -418,7 +418,7 @@ function LoginContent() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-3.5 rounded-xl text-sm shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/40 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
+                  className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-bold py-3.5 rounded-xl text-sm shadow-lg shadow-amber-500/20 transition-all duration-200 hover:shadow-amber-500/40 active:scale-[0.99] disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
                 >
                   {loading ? (
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -445,7 +445,7 @@ function LoginContent() {
                 Keni tashmë llogari?{" "}
                 <button
                   onClick={() => { setActiveTab("login"); setError(""); setSuccess(""); }}
-                  className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
+                  className="text-amber-400 hover:text-amber-300 font-semibold transition-colors"
                 >
                   Hyni këtu
                 </button>

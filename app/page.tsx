@@ -172,7 +172,7 @@ export default function Home() {
       <div className={`bg-white rounded-2xl overflow-hidden border h-full flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
         car.premium
           ? "border-amber-200 ring-1 ring-amber-200/60 shadow-lg shadow-amber-50"
-          : "border-gray-100 hover:border-blue-200 shadow-sm"
+          : "border-gray-100 hover:border-amber-200 shadow-sm"
       }`}>
         <div className={`relative ${featured ? "aspect-[16/9]" : "aspect-[16/10]"} bg-gray-100 overflow-hidden`}>
           {car.images[0] ? (
@@ -200,10 +200,10 @@ export default function Home() {
         </div>
         <div className="p-4 flex flex-col flex-1">
           <div className="flex items-start justify-between gap-2 mb-2">
-            <h3 className="text-sm font-bold text-gray-900 group-hover:text-blue-500 transition-colors line-clamp-1 flex-1">
+            <h3 className="text-sm font-bold text-gray-900 group-hover:text-amber-500 transition-colors line-clamp-1 flex-1">
               {car.title}
             </h3>
-            <span className="text-base font-black text-blue-500 whitespace-nowrap">
+            <span className="text-base font-black text-amber-500 whitespace-nowrap">
               €{car.price.toLocaleString()}
             </span>
           </div>
@@ -240,8 +240,8 @@ export default function Home() {
       <section ref={heroRef} className="relative overflow-hidden bg-[#070b14] pt-24 pb-14">
         {/* Ambient bg */}
         <div className="absolute inset-0">
-          <div className="absolute top-[-30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-blue-500/[0.07] blur-[120px]" />
-          <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-500/[0.05] blur-[100px]" />
+          <div className="absolute top-[-30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-amber-500/[0.07] blur-[120px]" />
+          <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-yellow-500/[0.05] blur-[100px]" />
         </div>
 
         {/* Mercedes image behind text */}
@@ -259,7 +259,7 @@ export default function Home() {
           {/* Heading */}
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-3">
-              Makina për shitje <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">në Shqipëri</span>
+              Makina për shitje <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">në Shqipëri</span>
             </h1>
             <p className="text-gray-400 text-base max-w-xl mx-auto">
               Gjeni makinën perfekte nga mijëra njoftime të verifikuara
@@ -274,7 +274,7 @@ export default function Home() {
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Marka</label>
                   <select value={selectedBrand} onChange={(e) => setSelectedBrand(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Çdo markë</option>
                     {allBrands.map((b) => <option key={b} value={b} className="bg-[#111827]">{b}</option>)}
                   </select>
@@ -283,13 +283,13 @@ export default function Home() {
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Modeli</label>
                   <input type="text" placeholder="p.sh. A4, Golf..." value={selectedModel} onChange={(e) => setSelectedModel(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none placeholder-gray-500 hover:bg-white/[0.12] transition-colors" />
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none placeholder-gray-500 hover:bg-white/[0.12] transition-colors" />
                 </div>
                 {/* Year */}
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Viti</label>
                   <select value={selectedYear} onChange={(e) => setSelectedYear(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Të gjitha</option>
                     {yearOptions.map((y) => <option key={y} value={y} className="bg-[#111827]">{y}</option>)}
                   </select>
@@ -298,7 +298,7 @@ export default function Home() {
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Kilometrazhi</label>
                   <select value={selectedKm} onChange={(e) => setSelectedKm(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Të gjitha</option>
                     {kmRanges.map((k) => <option key={k.value} value={k.value} className="bg-[#111827]">{k.label}</option>)}
                   </select>
@@ -307,7 +307,7 @@ export default function Home() {
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Çmimi</label>
                   <select value={selectedPrice} onChange={(e) => setSelectedPrice(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Të gjitha</option>
                     {priceRanges.map((p) => <option key={p.value} value={p.value} className="bg-[#111827]">{p.label}</option>)}
                   </select>
@@ -316,7 +316,7 @@ export default function Home() {
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Karburanti</label>
                   <select value={selectedFuel} onChange={(e) => setSelectedFuel(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Çdo lloj</option>
                     {fuelTypes.map((f) => <option key={f} value={f} className="bg-[#111827]">{f}</option>)}
                   </select>
@@ -325,14 +325,14 @@ export default function Home() {
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Ngjyra</label>
                   <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}
-                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Të gjitha</option>
                     {colorOptions.map((c) => <option key={c} value={c} className="bg-[#111827]">{c}</option>)}
                   </select>
                 </div>
               </div>
               <button onClick={handleSearch}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/40 active:scale-[0.99]">
+                className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-bold py-3 rounded-xl text-sm flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all duration-200 hover:shadow-amber-500/40 active:scale-[0.99]">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
@@ -344,7 +344,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-2 mt-5">
               {["BMW", "Mercedes-Benz", "Audi", "Volkswagen", "Toyota"].map((b) => (
                 <Link key={b} href={`/search?brand=${b}`}
-                  className="text-xs text-gray-400 hover:text-cyan-400 bg-white/[0.04] border border-white/[0.06] px-3 py-1.5 rounded-full hover:border-cyan-500/30 transition-colors">
+                  className="text-xs text-gray-400 hover:text-yellow-400 bg-white/[0.04] border border-white/[0.06] px-3 py-1.5 rounded-full hover:border-yellow-500/30 transition-colors">
                   {b}
                 </Link>
               ))}
@@ -359,10 +359,10 @@ export default function Home() {
       <section className="py-4 px-4 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 md:gap-12">
           {[
-            { icon: <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>, text: "Njoftime të verifikuara" },
-            { icon: <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>, text: "8,400+ përdorues" },
-            { icon: <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>, text: "2,500+ makina" },
-            { icon: <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>, text: "Publiko në 2 minuta" },
+            { icon: <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>, text: "Njoftime të verifikuara" },
+            { icon: <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>, text: "8,400+ përdorues" },
+            { icon: <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>, text: "2,500+ makina" },
+            { icon: <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>, text: "Publiko në 2 minuta" },
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
               {item.icon}
@@ -409,7 +409,7 @@ export default function Home() {
                 {latestListings.length} njoftime të reja
               </p>
             </div>
-            <Link href="/search" className="group inline-flex items-center gap-2 bg-blue-50 text-blue-600 hover:bg-blue-100 font-bold text-sm px-5 py-2.5 rounded-xl transition-colors shrink-0">
+            <Link href="/search" className="group inline-flex items-center gap-2 bg-amber-50 text-amber-600 hover:bg-amber-100 font-bold text-sm px-5 py-2.5 rounded-xl transition-colors shrink-0">
               Shiko të gjitha
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -425,7 +425,7 @@ export default function Home() {
                 onClick={() => setActiveTypeFilter(type.value)}
                 className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                   activeTypeFilter === type.value
-                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-md shadow-blue-500/20"
+                    ? "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md shadow-amber-500/20"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
                 }`}
               >
@@ -436,7 +436,7 @@ export default function Home() {
 
           {loadingLatest ? (
             <div className="flex justify-center py-20">
-              <div className="w-10 h-10 border-4 border-blue-200 border-t-blue-500 rounded-full animate-spin" />
+              <div className="w-10 h-10 border-4 border-amber-200 border-t-amber-500 rounded-full animate-spin" />
             </div>
           ) : (
             <>
@@ -452,7 +452,7 @@ export default function Home() {
               {/* Load more / View all button */}
               <div className="text-center mt-10">
                 <Link href="/search"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold px-10 py-3.5 rounded-xl text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200 hover:scale-[1.02]">
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold px-10 py-3.5 rounded-xl text-sm hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-200 hover:scale-[1.02]">
                   Shiko Të Gjitha Makinat
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -471,7 +471,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <h2 className="text-xl font-bold text-gray-900">Markat popullore</h2>
-            <Link href="/brands" className="group inline-flex items-center gap-1 text-blue-500 hover:text-blue-600 font-semibold text-sm transition-colors">
+            <Link href="/brands" className="group inline-flex items-center gap-1 text-amber-500 hover:text-amber-600 font-semibold text-sm transition-colors">
               Të gjitha markat
               <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -501,13 +501,13 @@ export default function Home() {
               <Link
                 key={city.name}
                 href={`/search?city=${encodeURIComponent(city.name)}`}
-                className="group flex flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/50 transition-all duration-200"
+                className="group flex flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-amber-200 hover:bg-amber-50/50 transition-all duration-200"
               >
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-blue-500 mb-2 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-gray-400 group-hover:text-amber-500 mb-2 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{city.name}</span>
+                <span className="text-sm font-bold text-gray-900 group-hover:text-amber-600 transition-colors">{city.name}</span>
                 <span className="text-[11px] text-gray-400 mt-0.5">{city.count} makina</span>
               </Link>
             ))}
@@ -525,12 +525,12 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-5">
           {/* Sell */}
           <div className="bg-gradient-to-br from-[#070b14] to-[#0f172a] rounded-2xl p-8 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-amber-500/10 rounded-full -translate-y-1/2 translate-x-1/3" />
             <div className="relative z-10">
               <h3 className="text-xl font-bold text-white mb-2">Shisni makinën tuaj</h3>
               <p className="text-gray-400 text-sm mb-5">Publikoni njoftimin falas dhe arrini mijëra blerës.</p>
               <Link href="/create-listing"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:shadow-lg transition-all">
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold px-6 py-2.5 rounded-xl text-sm hover:shadow-lg transition-all">
                 Krijo njoftim falas
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
@@ -538,12 +538,12 @@ export default function Home() {
           </div>
           {/* Dealer */}
           <div className="bg-gray-50 border border-gray-100 rounded-2xl p-8 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-50 rounded-full -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-50 rounded-full -translate-y-1/2 translate-x-1/3" />
             <div className="relative z-10">
               <h3 className="text-xl font-bold text-gray-900 mb-2">Jeni tregëtar makinash?</h3>
               <p className="text-gray-500 text-sm mb-5">Regjistrohuni dhe shfaqni inventarin tuaj.</p>
               <Link href="/contact"
-                className="inline-flex items-center gap-2 border-2 border-blue-500 text-blue-500 font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-blue-500 hover:text-white transition-all">
+                className="inline-flex items-center gap-2 border-2 border-amber-500 text-amber-500 font-bold px-6 py-2.5 rounded-xl text-sm hover:bg-amber-500 hover:text-white transition-all">
                 Na kontaktoni
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
@@ -557,11 +557,11 @@ export default function Home() {
       ═══════════════════════════════════════════════════════ */}
       <section className="py-14 px-4 bg-gradient-to-br from-[#070b14] to-[#0f172a] relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-500/[0.06] blur-[100px]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-amber-500/[0.06] blur-[100px]" />
         </div>
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-4 py-1.5 mb-5">
-            <svg className="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+            <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
             <span className="text-xs text-gray-300 font-medium">Njoftohu për makina të reja</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">Mos humbisni asnjë ofertë</h2>
@@ -572,11 +572,11 @@ export default function Home() {
             <input
               type="email"
               placeholder="Email-i juaj..."
-              className="flex-1 bg-white/[0.08] border border-white/10 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none placeholder-gray-500 hover:bg-white/[0.12] transition-colors"
+              className="flex-1 bg-white/[0.08] border border-white/10 text-white rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-yellow-500/50 outline-none placeholder-gray-500 hover:bg-white/[0.12] transition-colors"
             />
             <button
               type="submit"
-              className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-lg shadow-blue-500/20 transition-all duration-200 hover:shadow-blue-500/40 whitespace-nowrap"
+              className="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white font-bold px-6 py-3 rounded-xl text-sm shadow-lg shadow-amber-500/20 transition-all duration-200 hover:shadow-amber-500/40 whitespace-nowrap"
             >
               Regjistrohu
             </button>

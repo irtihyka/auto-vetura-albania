@@ -129,7 +129,7 @@ export default function CreateListingPage() {
   if (!isAuthenticated ) {
     return (
       <main className="bg-gray-100 min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500"></div>
       </main>
     );
   }
@@ -162,7 +162,7 @@ export default function CreateListingPage() {
                         onClick={() => setFormData({ ...formData, vehicleType: vt })}
                         className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 ${
                           formData.vehicleType === vt
-                            ? "border-blue-500 bg-blue-50 text-blue-700 shadow-sm"
+                            ? "border-amber-500 bg-amber-50 text-amber-700 shadow-sm"
                             : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
                         }`}
                       >
@@ -174,7 +174,7 @@ export default function CreateListingPage() {
                 <div>
                   <label className="block text-sm font-bold mb-2">Marka *</label>
                   <select
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     required
                     value={formData.brand}
                     onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
@@ -190,7 +190,7 @@ export default function CreateListingPage() {
                   <input
                     type="text"
                     placeholder="p.sh. C-Class"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                     required
                     value={formData.model}
                     onChange={(e) => setFormData({ ...formData, model: e.target.value })}
@@ -199,7 +199,7 @@ export default function CreateListingPage() {
                 <div>
                   <label className="block text-sm font-bold mb-2">Ngjyra</label>
                   <select
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     value={formData.color}
                     onChange={(e) => setFormData({ ...formData, color: e.target.value })}
                   >
@@ -215,7 +215,7 @@ export default function CreateListingPage() {
                     type="number"
                     min="1990"
                     max={new Date().getFullYear()}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                     required
                     value={formData.year}
                     onChange={(e) => setFormData({ ...formData, year: e.target.value })}
@@ -227,7 +227,7 @@ export default function CreateListingPage() {
                     type="number"
                     min="0"
                     placeholder="p.sh. 15000"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                     required
                     value={formData.price}
                     onChange={(e) => setFormData({ ...formData, price: e.target.value })}
@@ -243,7 +243,7 @@ export default function CreateListingPage() {
                 <div>
                   <label className="block text-sm font-bold mb-2">Karburanti *</label>
                   <select
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     required
                     value={formData.fuel}
                     onChange={(e) => setFormData({ ...formData, fuel: e.target.value })}
@@ -256,7 +256,7 @@ export default function CreateListingPage() {
                 <div>
                   <label className="block text-sm font-bold mb-2">Transmisioni *</label>
                   <select
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     required
                     value={formData.transmission}
                     onChange={(e) => setFormData({ ...formData, transmission: e.target.value })}
@@ -272,7 +272,7 @@ export default function CreateListingPage() {
                     type="number"
                     min="0"
                     placeholder="p.sh. 50000"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                     required
                     value={formData.km}
                     onChange={(e) => setFormData({ ...formData, km: e.target.value })}
@@ -281,7 +281,7 @@ export default function CreateListingPage() {
                 <div>
                   <label className="block text-sm font-bold mb-2">Tipi i mjetit</label>
                   <select
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     value={formData.bodyType}
                     onChange={(e) => setFormData({ ...formData, bodyType: e.target.value })}
                   >
@@ -294,7 +294,7 @@ export default function CreateListingPage() {
                 <div>
                   <label className="block text-sm font-bold mb-2">Vendndodhja (Qyteti) *</label>
                   <select
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 bg-white"
                     required
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
@@ -316,7 +316,7 @@ export default function CreateListingPage() {
                 <input
                   type="text"
                   placeholder="p.sh. Mercedes-Benz C-Class 2020"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                   required
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
@@ -325,7 +325,7 @@ export default function CreateListingPage() {
               <textarea
                 rows={5}
                 placeholder="Përshkruani makinën tuaj... (opsionale)"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
@@ -339,7 +339,7 @@ export default function CreateListingPage() {
                 <input
                   type="tel"
                   placeholder="p.sh. +355 69 123 4567"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
@@ -388,7 +388,7 @@ export default function CreateListingPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold py-4 px-6 rounded-lg hover:opacity-90 transition text-lg disabled:opacity-50 cursor-pointer"
+              className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold py-4 px-6 rounded-lg hover:opacity-90 transition text-lg disabled:opacity-50 cursor-pointer"
             >
               {loading ? "Duke publikuar..." : "Publiko Njoftimin"}
             </button>

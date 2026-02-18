@@ -68,7 +68,7 @@ export default function AdminSettingsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-500"></div>
       </div>
     );
   }
@@ -85,7 +85,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Emri i Faqes</label>
             <input
               type="text"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none"
               value={settings.siteName}
               onChange={(e) => updateField("siteName", e.target.value)}
             />
@@ -93,7 +93,7 @@ export default function AdminSettingsPage() {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Përshkrimi</label>
             <textarea
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none"
               rows={3}
               value={settings.siteDesc}
               onChange={(e) => updateField("siteDesc", e.target.value)}
@@ -110,7 +110,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Instagram</label>
             <input
               type="url"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               placeholder="https://instagram.com/..."
               value={settings.instagram}
               onChange={(e) => updateField("instagram", e.target.value)}
@@ -120,7 +120,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Facebook</label>
             <input
               type="url"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               placeholder="https://facebook.com/..."
               value={settings.facebook}
               onChange={(e) => updateField("facebook", e.target.value)}
@@ -130,7 +130,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">TikTok</label>
             <input
               type="url"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               placeholder="https://tiktok.com/@..."
               value={settings.tiktok}
               onChange={(e) => updateField("tiktok", e.target.value)}
@@ -140,7 +140,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
             <input
               type="text"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               placeholder="https://wa.me/355..."
               value={settings.whatsapp}
               onChange={(e) => updateField("whatsapp", e.target.value)}
@@ -150,7 +150,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">YouTube</label>
             <input
               type="url"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               placeholder="https://youtube.com/..."
               value={settings.youtube}
               onChange={(e) => updateField("youtube", e.target.value)}
@@ -167,7 +167,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input
               type="email"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               value={settings.contactEmail}
               onChange={(e) => updateField("contactEmail", e.target.value)}
             />
@@ -176,7 +176,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Telefoni</label>
             <input
               type="text"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               value={settings.contactPhone}
               onChange={(e) => updateField("contactPhone", e.target.value)}
             />
@@ -185,7 +185,7 @@ export default function AdminSettingsPage() {
             <label className="block text-sm font-medium text-gray-700 mb-1">Adresa</label>
             <input
               type="text"
-              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
               value={settings.contactAddress}
               onChange={(e) => updateField("contactAddress", e.target.value)}
             />
@@ -198,7 +198,7 @@ export default function AdminSettingsPage() {
         <button
           type="submit"
           disabled={saving}
-          className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 disabled:opacity-50 transition-colors"
+          className="bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-600 disabled:opacity-50 transition-colors"
         >
           {saving ? "Duke ruajtur..." : "Ruaj Cilësimet"}
         </button>

@@ -68,7 +68,7 @@ export default function AnalyticsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500" />
       </div>
     );
   }
@@ -89,7 +89,7 @@ export default function AnalyticsPage() {
         </div>
         <Link
           href="/my-listings"
-          className="text-blue-500 font-semibold hover:text-blue-600 transition-colors"
+          className="text-amber-500 font-semibold hover:text-amber-600 transition-colors"
         >
           ← Njoftimet e Mia
         </Link>
@@ -101,11 +101,11 @@ export default function AnalyticsPage() {
           { label: "Gjithsej Njoftimet", value: stats.totalListings, icon: "📋", color: "text-gray-900" },
           { label: "Aktive", value: stats.activeListings, icon: "✅", color: "text-green-600" },
           { label: "Të Shitura", value: stats.soldListings, icon: "🎉", color: "text-purple-600" },
-          { label: "Shikime Totale", value: stats.totalViews.toLocaleString(), icon: "👁", color: "text-blue-600" },
+          { label: "Shikime Totale", value: stats.totalViews.toLocaleString(), icon: "👁", color: "text-amber-600" },
           { label: "Klikime Totale", value: stats.totalClicks.toLocaleString(), icon: "🖱️", color: "text-indigo-600" },
           { label: "Të Preferuara", value: stats.totalFavorites, icon: "❤️", color: "text-red-500" },
           { label: "Vlerësime", value: stats.totalReviews, icon: "⭐", color: "text-amber-500" },
-          { label: "Vlerësimi Mesatar", value: stats.avgRating > 0 ? `${stats.avgRating}/5` : "—", icon: "📊", color: "text-blue-500" },
+          { label: "Vlerësimi Mesatar", value: stats.avgRating > 0 ? `${stats.avgRating}/5` : "—", icon: "📊", color: "text-amber-500" },
         ].map((stat) => (
           <div key={stat.label} className="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
@@ -125,7 +125,7 @@ export default function AnalyticsPage() {
             {dailyAnalytics.slice(-30).map((day) => (
               <div key={day.date} className="flex-1 flex flex-col items-center group relative">
                 <div
-                  className="w-full bg-gradient-to-t from-blue-500 to-cyan-300 rounded-t-sm min-h-[2px] transition-all hover:from-blue-600 hover:to-cyan-400"
+                  className="w-full bg-gradient-to-t from-amber-500 to-yellow-300 rounded-t-sm min-h-[2px] transition-all hover:from-amber-600 hover:to-yellow-400"
                   style={{ height: `${(day.views / maxDailyViews) * 100}%` }}
                 />
                 <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
@@ -169,7 +169,7 @@ export default function AnalyticsPage() {
               <div className="flex-1 p-4">
                 <div className="flex items-start justify-between gap-2 mb-2">
                   <div>
-                    <Link href={`/listing/${listing.id}`} className="font-semibold text-gray-900 hover:text-blue-500 transition-colors">
+                    <Link href={`/listing/${listing.id}`} className="font-semibold text-gray-900 hover:text-amber-500 transition-colors">
                       {listing.title}
                     </Link>
                     <p className="text-sm text-gray-500">€{listing.price.toLocaleString()} · {listing.brand} {listing.model}</p>
@@ -220,7 +220,7 @@ export default function AnalyticsPage() {
                         Promovo në Premium
                       </button>
                     ) : (
-                      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-amber-200 rounded-xl p-4">
+                      <div className="bg-gradient-to-br from-amber-50 to-yellow-50 border border-amber-200 rounded-xl p-4">
                         <div className="flex items-start justify-between mb-3">
                           <h4 className="text-sm font-bold text-amber-800 flex items-center gap-1.5">
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -256,7 +256,7 @@ export default function AnalyticsPage() {
                           {adminContact?.contactPhone && (
                             <a
                               href={`tel:${adminContact.contactPhone}`}
-                              className="inline-flex items-center gap-1.5 bg-blue-500 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                              className="inline-flex items-center gap-1.5 bg-amber-500 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-amber-600 transition-colors"
                             >
                               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -310,7 +310,7 @@ export default function AnalyticsPage() {
           <p className="text-gray-500 mb-6">Shtoni njoftimin tuaj të parë për të parë statistikat.</p>
           <Link
             href="/create-listing"
-            className="inline-block bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"
+            className="inline-block bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-600 transition-colors"
           >
             + Shto Njoftim
           </Link>

@@ -84,7 +84,7 @@ export default function ForgotPasswordPage() {
                   </button>
                   <Link
                     href="/login"
-                    className="text-center text-blue-500 hover:text-blue-700 underline text-sm"
+                    className="text-center text-amber-500 hover:text-amber-700 underline text-sm"
                   >
                     Kthehu te hyrja
                   </Link>

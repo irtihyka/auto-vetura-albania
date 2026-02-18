@@ -160,7 +160,7 @@ export default function ListingPage() {
   if (loading) {
     return (
       <main className="bg-gray-100 min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500"></div>
       </main>
     );
   }
@@ -169,7 +169,7 @@ export default function ListingPage() {
     return (
       <main className="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-gray-700 mb-4">Njoftimi nuk u gjet</h1>
-        <Link href="/search" className="text-blue-500 hover:underline">
+        <Link href="/search" className="text-amber-500 hover:underline">
           ← Kthehu te kërkimi
         </Link>
       </main>
@@ -236,7 +236,7 @@ export default function ListingPage() {
                   key={img.id}
                   onClick={(e) => { e.stopPropagation(); setSelectedImage(i); }}
                   className={`w-16 h-12 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
-                    selectedImage === i ? "border-blue-500 opacity-100" : "border-transparent opacity-50 hover:opacity-80"
+                    selectedImage === i ? "border-amber-500 opacity-100" : "border-transparent opacity-50 hover:opacity-80"
                   }`}
                 >
                   <img src={img.url} alt="" className="w-full h-full object-cover" />
@@ -263,7 +263,7 @@ export default function ListingPage() {
                 <select
                   value={reportReason}
                   onChange={(e) => setReportReason(e.target.value)}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400"
                 >
                   <option value="spam">Spam</option>
                   <option value="fraud">Mashtrues / Fake</option>
@@ -278,7 +278,7 @@ export default function ListingPage() {
                   value={reportDetails}
                   onChange={(e) => setReportDetails(e.target.value)}
                   rows={3}
-                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-amber-400"
                   placeholder="Shkruani detaje shtesë..."
                 />
               </div>
@@ -305,9 +305,9 @@ export default function ListingPage() {
       <div className="container mx-auto px-4 pt-28 pb-8">
         {/* Breadcrumb */}
         <nav className="mb-6 text-sm text-gray-500">
-          <Link href="/" className="hover:text-blue-500">Ballina</Link>
+          <Link href="/" className="hover:text-amber-500">Ballina</Link>
           <span className="mx-2">/</span>
-          <Link href="/search" className="hover:text-blue-500">Kërko</Link>
+          <Link href="/search" className="hover:text-amber-500">Kërko</Link>
           <span className="mx-2">/</span>
           <span className="text-gray-900">{listing.title}</span>
         </nav>
@@ -318,7 +318,7 @@ export default function ListingPage() {
             <div className="bg-white rounded-2xl shadow-md overflow-hidden relative">
               {/* Premium badge */}
               {listing.premium && (
-                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-amber-500 to-blue-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
+                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-amber-500 to-amber-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                   </svg>
@@ -358,7 +358,7 @@ export default function ListingPage() {
                       key={img.id}
                       onClick={() => setSelectedImage(i)}
                       className={`w-20 h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all ${
-                        selectedImage === i ? "border-blue-500" : "border-transparent hover:border-gray-300"
+                        selectedImage === i ? "border-amber-500" : "border-transparent hover:border-gray-300"
                       }`}
                     >
                       <img src={img.url} alt="" className="w-full h-full object-cover" />
@@ -477,13 +477,13 @@ export default function ListingPage() {
                     value={reviewComment}
                     onChange={(e) => setReviewComment(e.target.value)}
                     rows={2}
-                    className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-400 mb-3"
+                    className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-amber-400 mb-3"
                     placeholder="Shkruani koment (opsionale)..."
                   />
                   <button
                     onClick={submitReview}
                     disabled={reviewSubmitting}
-                    className="bg-blue-500 text-white text-sm font-semibold px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors disabled:opacity-50"
+                    className="bg-amber-500 text-white text-sm font-semibold px-6 py-2 rounded-lg hover:bg-amber-600 transition-colors disabled:opacity-50"
                   >
                     {reviewSubmitting ? "Duke dërguar..." : "Dërgo Vlerësimin"}
                   </button>
@@ -498,7 +498,7 @@ export default function ListingPage() {
                   {listing.reviews.map((review) => (
                     <div key={review.id} className="border-b border-gray-100 pb-4 last:border-0">
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-sm font-bold text-blue-600">
+                        <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center text-sm font-bold text-amber-600">
                           {review.user.name.charAt(0).toUpperCase()}
                         </div>
                         <div>
@@ -535,7 +535,7 @@ export default function ListingPage() {
             <div className="bg-white rounded-2xl shadow-md p-6 sticky top-24">
               {/* Premium badge in sidebar */}
               {listing.premium && (
-                <div className="bg-gradient-to-r from-amber-50 to-blue-50 border border-amber-200 rounded-lg px-3 py-2 mb-4 text-center">
+                <div className="bg-gradient-to-r from-amber-50 to-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4 text-center">
                   <span className="text-xs font-semibold text-amber-700 flex items-center justify-center gap-1">
                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -546,7 +546,7 @@ export default function ListingPage() {
               )}
 
               <h1 className="text-2xl font-bold text-gray-900 mb-2">{listing.title}</h1>
-              <div className="text-3xl font-bold text-blue-500 mb-6">
+              <div className="text-3xl font-bold text-amber-500 mb-6">
                 €{listing.price.toLocaleString()}
               </div>
 
@@ -618,7 +618,7 @@ export default function ListingPage() {
               {(listing.phone || listing.user.phone) && (
                 <a
                   href={`tel:${listing.phone || listing.user.phone}`}
-                  className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 mb-3"
+                  className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition flex items-center justify-center gap-2 mb-3"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />

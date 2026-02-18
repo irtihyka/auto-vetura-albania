@@ -84,7 +84,7 @@ export default function AdminUsersPage() {
         <input
           type="text"
           placeholder="Kërko përdoruesit sipas emrit ose emailit..."
-          className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+          className="w-full border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none"
           value={search}
           onChange={(e) => { setSearch(e.target.value); setPage(1); }}
         />
@@ -94,7 +94,7 @@ export default function AdminUsersPage() {
       <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-500"></div>
           </div>
         ) : users.length === 0 ? (
           <div className="text-center py-20 text-gray-500">Asnjë përdorues nuk u gjet.</div>
@@ -129,7 +129,7 @@ export default function AdminUsersPage() {
                       {user.phone || "—"}
                     </td>
                     <td className="px-4 py-3 text-center">
-                      <span className="inline-block bg-blue-100 text-blue-700 text-xs font-medium px-2 py-0.5 rounded-full">
+                      <span className="inline-block bg-amber-100 text-amber-700 text-xs font-medium px-2 py-0.5 rounded-full">
                         {user._count.listings} njoftimet
                       </span>
                     </td>
@@ -138,7 +138,7 @@ export default function AdminUsersPage() {
                     </td>
                     <td className="px-4 py-3 text-center">
                       <select
-                        className="text-xs border rounded px-2 py-1 focus:ring-1 focus:ring-blue-500 outline-none"
+                        className="text-xs border rounded px-2 py-1 focus:ring-1 focus:ring-amber-500 outline-none"
                         value={user.role}
                         onChange={(e) => changeRole(user.id, e.target.value)}
                       >

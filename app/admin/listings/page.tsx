@@ -104,12 +104,12 @@ export default function AdminListingsPage() {
           <input
             type="text"
             placeholder="Kërko njoftimet..."
-            className="flex-1 border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+            className="flex-1 border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none"
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
           />
           <select
-            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
             value={statusFilter}
             onChange={(e) => { setStatusFilter(e.target.value); setPage(1); }}
           >
@@ -119,7 +119,7 @@ export default function AdminListingsPage() {
             <option value="sold">Shitur</option>
           </select>
           <select
-            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+            className="border rounded-lg px-4 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none"
             value={featuredFilter}
             onChange={(e) => { setFeaturedFilter(e.target.value); setPage(1); }}
           >
@@ -134,7 +134,7 @@ export default function AdminListingsPage() {
       <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-500"></div>
           </div>
         ) : listings.length === 0 ? (
           <div className="text-center py-20 text-gray-500">Asnjë njoftim nuk u gjet.</div>
@@ -178,11 +178,11 @@ export default function AdminListingsPage() {
                       <p className="text-gray-900">{listing.user.name}</p>
                       <p className="text-xs text-gray-500">{listing.user.email}</p>
                     </td>
-                    <td className="px-4 py-3 font-bold text-blue-500">€{listing.price.toLocaleString()}</td>
+                    <td className="px-4 py-3 font-bold text-amber-500">€{listing.price.toLocaleString()}</td>
                     <td className="px-4 py-3 text-center hidden lg:table-cell text-gray-600">{listing.views}</td>
                     <td className="px-4 py-3 text-center">
                       <select
-                        className="text-xs border rounded px-2 py-1 focus:ring-1 focus:ring-blue-500 outline-none"
+                        className="text-xs border rounded px-2 py-1 focus:ring-1 focus:ring-amber-500 outline-none"
                         value={listing.status}
                         onChange={(e) => updateStatus(listing.id, e.target.value)}
                       >
@@ -194,7 +194,7 @@ export default function AdminListingsPage() {
                     <td className="px-4 py-3 text-center">
                       <button
                         onClick={() => toggleFeatured(listing.id, listing.featured)}
-                        className={`text-lg ${listing.featured ? "text-blue-500" : "text-gray-300 hover:text-blue-400"}`}
+                        className={`text-lg ${listing.featured ? "text-amber-500" : "text-gray-300 hover:text-amber-400"}`}
                         title={listing.featured ? "Hiq nga të veçantat" : "Bëje të veçantë"}
                       >
                         ⭐

@@ -20,14 +20,14 @@ export default function BrandsPage() {
         />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <FadeUp>
-            <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/30 text-cyan-300 text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/30 text-yellow-300 text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full mb-6">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
               </svg>
               Të gjitha markat
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4 leading-tight">
-              Eksploro sipas <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Markës</span>
+              Eksploro sipas <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">Markës</span>
             </h1>
             <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
               Zgjidhni markën e preferuar dhe zbuloni të gjitha makinat në dispozicion. Nga Audi tek Volvo, kemi gjithçka.
@@ -47,7 +47,7 @@ export default function BrandsPage() {
               </div>
               <Link
                 href="/search"
-                className="text-sm font-semibold text-blue-500 hover:text-blue-600 flex items-center gap-1 transition-colors"
+                className="text-sm font-semibold text-amber-500 hover:text-amber-600 flex items-center gap-1 transition-colors"
               >
                 Shiko të gjitha makinat
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@ export default function BrandsPage() {
               </p>
               <Link
                 href="/search"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold px-8 py-3 rounded-xl text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-200"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold px-8 py-3 rounded-xl text-sm hover:shadow-lg hover:shadow-amber-500/25 transition-all duration-200"
               >
                 Kërkim i Avancuar
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -55,17 +55,12 @@ export default function Footer() {
           {/* Logo + Social (desktop) */}
           <div className="hidden md:flex flex-col items-center justify-start p-4 text-center">
             <div className="mb-6">
-              <Link href="/" className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 16V8h4l2 4v4" />
-                  </svg>
-                </div>
-                <span className="text-white font-black text-xl tracking-tight">
-                  Auto<span className="text-cyan-400">Vetura</span>
-                </span>
+              <Link href="/" className="inline-block">
+                <img
+                  src="/images/logo.jpg"
+                  alt="Auto Vetura Albania"
+                  className="h-14 w-auto rounded-lg"
+                />
               </Link>
             </div>
             <div className="grid grid-cols-3 gap-4 justify-items-center">

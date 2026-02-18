@@ -80,7 +80,7 @@ export default function AdminMessagesPage() {
             type="checkbox"
             checked={unreadOnly}
             onChange={(e) => { setUnreadOnly(e.target.checked); setPage(1); }}
-            className="w-4 h-4 accent-blue-500"
+            className="w-4 h-4 accent-amber-500"
           />
           <span className="text-sm text-gray-700">Shfaq vetëm mesazhet e palexuara</span>
         </label>
@@ -90,7 +90,7 @@ export default function AdminMessagesPage() {
       <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-20">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500"></div>
+            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-amber-500"></div>
           </div>
         ) : messages.length === 0 ? (
           <div className="text-center py-20 text-gray-500">
@@ -101,7 +101,7 @@ export default function AdminMessagesPage() {
             {messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`transition-colors ${!msg.read ? "bg-blue-50/50" : ""}`}
+                className={`transition-colors ${!msg.read ? "bg-amber-50/50" : ""}`}
               >
                 <div
                   className="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50"
@@ -109,7 +109,7 @@ export default function AdminMessagesPage() {
                 >
                   <div className="flex items-center gap-3 min-w-0 flex-1">
                     {!msg.read && (
-                      <span className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></span>
+                      <span className="w-2 h-2 bg-amber-500 rounded-full flex-shrink-0"></span>
                     )}
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
@@ -146,7 +146,7 @@ export default function AdminMessagesPage() {
                       <div className="flex items-center gap-3 pt-1">
                         <button
                           onClick={(e) => { e.stopPropagation(); toggleRead(msg.id, msg.read); }}
-                          className="text-sm text-blue-600 hover:text-blue-800 font-medium"
+                          className="text-sm text-amber-600 hover:text-amber-800 font-medium"
                         >
                           {msg.read ? "Shëno si i palexuar" : "Shëno si i lexuar"}
                         </button>
