@@ -24,6 +24,10 @@ const allBrands = [
   "Seat", "Skoda", "Toyota", "Volkswagen", "Volvo",
 ];
 const fuelTypes = ["Benzinë", "Diesel", "Hybrid", "Elektrike", "Gas"];
+const colorOptions = [
+  "E bardhë", "E zezë", "Gri", "Argjendi", "Blu", "E kuqe",
+  "Jeshile", "E verdhë", "Portokalli", "Kafe", "Bezhë", "E artë",
+];
 const yearOptions = ["2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015"];
 const priceRanges = [
   { label: "0 - 5,000 €", value: "0-5000" },
@@ -95,6 +99,7 @@ export default function Home() {
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedKm, setSelectedKm] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
 
   /* ── Listings state ── */
   const [latestListings, setLatestListings] = useState<Listing[]>([]);
@@ -152,8 +157,9 @@ export default function Home() {
       if (min) params.set("priceFrom", min);
       if (max) params.set("priceTo", max);
     }
+    if (selectedColor) params.set("color", selectedColor);
     router.push(`/search?${params.toString()}`);
-  }, [selectedBrand, selectedModel, selectedFuel, selectedYear, selectedKm, selectedPrice, router]);
+  }, [selectedBrand, selectedModel, selectedFuel, selectedYear, selectedKm, selectedPrice, selectedColor, router]);
 
   /* ── Filter latest listings by type ── */
   const filteredListings = activeTypeFilter
@@ -263,7 +269,7 @@ export default function Home() {
           {/* ── Search Bar ── */}
           <div className="max-w-5xl mx-auto">
             <div className="bg-white/[0.06] backdrop-blur-2xl rounded-2xl border border-white/10 p-4 md:p-5">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2.5 mb-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-3">
                 {/* Brand */}
                 <div>
                   <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Marka</label>
@@ -313,6 +319,15 @@ export default function Home() {
                     className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
                     <option value="" className="bg-[#111827]">Çdo lloj</option>
                     {fuelTypes.map((f) => <option key={f} value={f} className="bg-[#111827]">{f}</option>)}
+                  </select>
+                </div>
+                {/* Color */}
+                <div>
+                  <label className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 px-1">Ngjyra</label>
+                  <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)}
+                    className="w-full bg-white/[0.08] border border-white/10 text-white rounded-lg px-3 py-2.5 text-sm focus:ring-2 focus:ring-cyan-500/50 outline-none appearance-none cursor-pointer hover:bg-white/[0.12] transition-colors">
+                    <option value="" className="bg-[#111827]">Të gjitha</option>
+                    {colorOptions.map((c) => <option key={c} value={c} className="bg-[#111827]">{c}</option>)}
                   </select>
                 </div>
               </div>

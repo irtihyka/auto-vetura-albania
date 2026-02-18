@@ -13,6 +13,10 @@ const fuelTypes = ["Benzinë", "Diesel", "Hibrid", "Elektrik", "Gas"];
 const transmissionTypes = ["Automatik", "Manual"];
 const bodyTypes = ["Sedan", "SUV", "Hatchback", "Coupe", "Kombi", "Van", "Kabriolet"];
 const vehicleTypeOptions = ["Makinë", "Motocikletë", "Kamion", "Furgon"];
+const colorOptions = [
+  "E bardhë", "E zezë", "Gri", "Argjendi", "Blu", "E kuqe",
+  "Jeshile", "E verdhë", "Portokalli", "Kafe", "Bezhë", "E artë",
+];
 const albanianCities = [
   "Tiranë", "Durrës", "Vlorë", "Shkodër", "Elbasan", "Korçë", "Fier", "Berat",
   "Lushnjë", "Pogradec", "Kavajë", "Gjirokastër", "Sarandë", "Lezhë", "Kukës",
@@ -167,17 +171,6 @@ export default function CreateListingPage() {
                     ))}
                   </div>
                 </div>
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-bold mb-2">Titulli i njoftimit *</label>
-                  <input
-                    type="text"
-                    placeholder="p.sh. Mercedes-Benz C-Class 2020"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    required
-                    value={formData.title}
-                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  />
-                </div>
                 <div>
                   <label className="block text-sm font-bold mb-2">Marka *</label>
                   <select
@@ -202,6 +195,19 @@ export default function CreateListingPage() {
                     value={formData.model}
                     onChange={(e) => setFormData({ ...formData, model: e.target.value })}
                   />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold mb-2">Ngjyra</label>
+                  <select
+                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    value={formData.color}
+                    onChange={(e) => setFormData({ ...formData, color: e.target.value })}
+                  >
+                    <option value="">Zgjidh ngjyrën</option>
+                    {colorOptions.map((c) => (
+                      <option key={c} value={c}>{c}</option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label className="block text-sm font-bold mb-2">Viti *</label>
@@ -286,16 +292,6 @@ export default function CreateListingPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-bold mb-2">Ngjyra</label>
-                  <input
-                    type="text"
-                    placeholder="p.sh. E zezë"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    value={formData.color}
-                    onChange={(e) => setFormData({ ...formData, color: e.target.value })}
-                  />
-                </div>
-                <div>
                   <label className="block text-sm font-bold mb-2">Vendndodhja (Qyteti) *</label>
                   <select
                     className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
@@ -312,9 +308,20 @@ export default function CreateListingPage() {
               </div>
             </div>
 
-            {/* Description */}
+            {/* Title & Description */}
             <div className="bg-white rounded-2xl shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Përshkrimi</h2>
+              <h2 className="text-xl font-bold mb-4">Titulli & Përshkrimi</h2>
+              <div className="mb-4">
+                <label className="block text-sm font-bold mb-2">Titulli i njoftimit *</label>
+                <input
+                  type="text"
+                  placeholder="p.sh. Mercedes-Benz C-Class 2020"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                />
+              </div>
               <textarea
                 rows={5}
                 placeholder="Përshkruani makinën tuaj... (opsionale)"

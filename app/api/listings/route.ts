@@ -46,6 +46,7 @@ export async function GET(request: NextRequest) {
     const vehicleType = searchParams.get("vehicleType");
     const bodyType = searchParams.get("bodyType");
     const city = searchParams.get("city");
+    const color = searchParams.get("color");
     const kmFrom = searchParams.get("kmFrom");
     const kmTo = searchParams.get("kmTo");
 
@@ -58,6 +59,7 @@ export async function GET(request: NextRequest) {
     if (vehicleType) where.vehicleType = vehicleType;
     if (bodyType) where.bodyType = bodyType;
     if (city) where.location = city;
+    if (color) where.color = color;
     if (userId) where.userId = userId;
     if (featured === "true") where.featured = true;
 

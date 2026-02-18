@@ -14,6 +14,10 @@ const fuelTypes = ["Të gjitha", "Benzinë", "Diesel", "Hybrid", "Elektrike"];
 const yearOptions = ["Të gjitha", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "Më e vjetër"];
 const vehicleTypes = ["Të gjitha", "Makinë", "Motocikletë", "Kamion", "Furgon"];
 const bodyTypeOptions = ["Të gjitha", "Sedan", "SUV", "Hatchback", "Coupe", "Karavan", "Furgon", "Kombi", "Van", "Kabriolet"];
+const colorOptions = [
+  "Të gjitha", "E bardhë", "E zezë", "Gri", "Argjendi", "Blu", "E kuqe",
+  "Jeshile", "E verdhë", "Portokalli", "Kafe", "Bezhë", "E artë",
+];
 
 interface Car {
   id: string;
@@ -30,13 +34,14 @@ interface Car {
 }
 
 /* ── tiny active-filter count helper ── */
-function useActiveFilterCount(brand: string, fuel: string, year: string, query: string, vehicleType: string, bodyType: string) {
+function useActiveFilterCount(brand: string, fuel: string, year: string, query: string, vehicleType: string, bodyType: string, color: string) {
   let c = 0;
   if (brand !== "Të gjitha") c++;
   if (fuel !== "Të gjitha") c++;
   if (year !== "Të gjitha") c++;
   if (vehicleType !== "Të gjitha") c++;
   if (bodyType !== "Të gjitha") c++;
+  if (color !== "Të gjitha") c++;
   if (query.trim()) c++;
   return c;
 }
@@ -59,6 +64,7 @@ function SearchPageContent() {
   const [priceTo, setPriceTo] = useState(searchParams.get("priceTo") || "");
   const [selectedVehicleType, setSelectedVehicleType] = useState(searchParams.get("vehicleType") || "Të gjitha");
   const [selectedBodyType, setSelectedBodyType] = useState(searchParams.get("bodyType") || "Të gjitha");
+  const [selectedColor, setSelectedColor] = useState(searchParams.get("color") || "Të gjitha");
 
   /* ── Sync state when URL params change (e.g. back/forward navigation) ── */
   useEffect(() => {
@@ -71,9 +77,10 @@ function SearchPageContent() {
     setPriceTo(searchParams.get("priceTo") || "");
     setSelectedVehicleType(searchParams.get("vehicleType") || "Të gjitha");
     setSelectedBodyType(searchParams.get("bodyType") || "Të gjitha");
+    setSelectedColor(searchParams.get("color") || "Të gjitha");
   }, [searchParams]);
 
-  const activeFilters = useActiveFilterCount(selectedBrand, selectedFuel, selectedYear, searchQuery, selectedVehicleType, selectedBodyType);
+  const activeFilters = useActiveFilterCount(selectedBrand, selectedFuel, selectedYear, searchQuery, selectedVehicleType, selectedBodyType, selectedColor);
 
   const fetchCars = useCallback(async () => {
     setLoading(true);
@@ -91,6 +98,7 @@ function SearchPageContent() {
       if (priceTo) params.set("priceTo", priceTo);
       if (selectedVehicleType !== "Të gjitha") params.set("vehicleType", selectedVehicleType);
       if (selectedBodyType !== "Të gjitha") params.set("bodyType", selectedBodyType);
+      if (selectedColor !== "Të gjitha") params.set("color", selectedColor);
       const sortMap: Record<string, string> = {
         newest: "newest", "price-low": "price-asc",
         "price-high": "price-desc", "km-low": "km-asc",
@@ -106,7 +114,7 @@ function SearchPageContent() {
     } finally {
       setLoading(false);
     }
-  }, [selectedBrand, selectedFuel, selectedYear, searchQuery, sortBy, priceFrom, priceTo, selectedVehicleType, selectedBodyType]);
+  }, [selectedBrand, selectedFuel, selectedYear, searchQuery, sortBy, priceFrom, priceTo, selectedVehicleType, selectedBodyType, selectedColor]);
 
   useEffect(() => {
     // Only debounce if there's a search query (user typing), otherwise fetch immediately
@@ -125,6 +133,7 @@ function SearchPageContent() {
     setSortBy("newest");
     setSelectedVehicleType("Të gjitha");
     setSelectedBodyType("Të gjitha");
+    setSelectedColor("Të gjitha");
     setPriceFrom("");
     setPriceTo("");
   }
@@ -136,6 +145,7 @@ function SearchPageContent() {
   if (selectedYear !== "Të gjitha") chips.push({ label: `Viti: ${selectedYear}`, active: true, clear: () => setSelectedYear("Të gjitha") });
   if (selectedVehicleType !== "Të gjitha") chips.push({ label: selectedVehicleType, active: true, clear: () => setSelectedVehicleType("Të gjitha") });
   if (selectedBodyType !== "Të gjitha") chips.push({ label: `Tipi: ${selectedBodyType}`, active: true, clear: () => setSelectedBodyType("Të gjitha") });
+  if (selectedColor !== "Të gjitha") chips.push({ label: `Ngjyra: ${selectedColor}`, active: true, clear: () => setSelectedColor("Të gjitha") });
 
   return (
     <main className="bg-gray-50 w-full text-gray-900 flex-grow flex flex-col items-center min-h-screen">
@@ -356,6 +366,10 @@ function SearchPageContent() {
                     {/* Body Type */}
                     <FilterSelect label="Tipi i trupit" value={selectedBodyType} onChange={setSelectedBodyType} options={bodyTypeOptions}
                       icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" /></svg>}
+                    />
+                    {/* Color */}
+                    <FilterSelect label="Ngjyra" value={selectedColor} onChange={setSelectedColor} options={colorOptions}
+                      icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>}
                     />
 
                     {/* Price Range */}
