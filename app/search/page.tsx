@@ -12,13 +12,22 @@ const carBrands = [
   "Peugeot", "Renault", "Seat", "Skoda", "Toyota", "Volkswagen", "Volvo",
 ];
 const fuelTypes = ["Të gjitha", "Benzinë", "Diesel", "Hibrid", "Elektrik", "Gaz/TNG", "Benzinë+Gaz", "Tjetër"];
-const yearOptions = ["Të gjitha", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "Më e vjetër"];
+const yearOptions = [
+  "Të gjitha", "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015",
+  "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
+  "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995",
+  "1994", "1993", "1992", "1991", "1990", "Më e vjetër",
+];
 const vehicleTypes = ["Të gjitha", "Makinë", "Motocikletë", "Kamion", "Furgon"];
-const bodyTypeOptions = ["Të gjitha", "Sedan", "SUV", "Hatchback", "Coupe", "Karavan", "Furgon", "Kombi", "Van", "Kabriolet"];
+const bodyTypeOptions = [
+  "Të gjitha", "Sedan", "SUV", "Hatchback", "Coupe", "Karavan", "Kombi",
+  "Kabriolet", "Van", "Minivan", "Pickup", "Limuzinë", "Furgon", "Crossover", "Mikrobus",
+];
 const colorOptions = [
   "Të gjitha", "E bardhë", "E zezë", "Gri", "Argjendi", "Blu", "E kuqe",
   "Jeshile", "E verdhë", "Portokalli", "Kafe", "Bezhë", "E artë",
 ];
+const conditionOptions = ["Të gjitha", "E re", "E përdorur"];
 
 interface Car {
   id: string;
@@ -35,7 +44,7 @@ interface Car {
 }
 
 /* ── tiny active-filter count helper ── */
-function useActiveFilterCount(brand: string, fuel: string, year: string, query: string, vehicleType: string, bodyType: string, color: string, model: string) {
+function useActiveFilterCount(brand: string, fuel: string, year: string, query: string, vehicleType: string, bodyType: string, color: string, model: string, condition: string) {
   let c = 0;
   if (brand !== "Të gjitha") c++;
   if (model !== "Të gjitha") c++;
@@ -44,6 +53,7 @@ function useActiveFilterCount(brand: string, fuel: string, year: string, query: 
   if (vehicleType !== "Të gjitha") c++;
   if (bodyType !== "Të gjitha") c++;
   if (color !== "Të gjitha") c++;
+  if (condition !== "Të gjitha") c++;
   if (query.trim()) c++;
   return c;
 }
@@ -68,6 +78,7 @@ function SearchPageContent() {
   const [selectedVehicleType, setSelectedVehicleType] = useState(searchParams.get("vehicleType") || "Të gjitha");
   const [selectedBodyType, setSelectedBodyType] = useState(searchParams.get("bodyType") || "Të gjitha");
   const [selectedColor, setSelectedColor] = useState(searchParams.get("color") || "Të gjitha");
+  const [selectedCondition, setSelectedCondition] = useState(searchParams.get("condition") || "Të gjitha");
 
   /* ── Sync state when URL params change (e.g. back/forward navigation) ── */
   useEffect(() => {
@@ -82,9 +93,10 @@ function SearchPageContent() {
     setSelectedVehicleType(searchParams.get("vehicleType") || "Të gjitha");
     setSelectedBodyType(searchParams.get("bodyType") || "Të gjitha");
     setSelectedColor(searchParams.get("color") || "Të gjitha");
+    setSelectedCondition(searchParams.get("condition") || "Të gjitha");
   }, [searchParams]);
 
-  const activeFilters = useActiveFilterCount(selectedBrand, selectedFuel, selectedYear, searchQuery, selectedVehicleType, selectedBodyType, selectedColor, selectedModel);
+  const activeFilters = useActiveFilterCount(selectedBrand, selectedFuel, selectedYear, searchQuery, selectedVehicleType, selectedBodyType, selectedColor, selectedModel, selectedCondition);
 
   const fetchCars = useCallback(async () => {
     setLoading(true);
@@ -97,13 +109,14 @@ function SearchPageContent() {
         params.set("yearFrom", selectedYear);
         params.set("yearTo", selectedYear);
       }
-      if (selectedYear === "Më e vjetër") params.set("yearTo", "2017");
+      if (selectedYear === "Më e vjetër") params.set("yearTo", "1989");
       if (searchQuery) params.set("search", searchQuery);
       if (priceFrom) params.set("priceFrom", priceFrom);
       if (priceTo) params.set("priceTo", priceTo);
       if (selectedVehicleType !== "Të gjitha") params.set("vehicleType", selectedVehicleType);
       if (selectedBodyType !== "Të gjitha") params.set("bodyType", selectedBodyType);
       if (selectedColor !== "Të gjitha") params.set("color", selectedColor);
+      if (selectedCondition !== "Të gjitha") params.set("condition", selectedCondition);
       const sortMap: Record<string, string> = {
         newest: "newest", "price-low": "price-asc",
         "price-high": "price-desc", "km-low": "km-asc",
@@ -119,7 +132,7 @@ function SearchPageContent() {
     } finally {
       setLoading(false);
     }
-  }, [selectedBrand, selectedModel, selectedFuel, selectedYear, searchQuery, sortBy, priceFrom, priceTo, selectedVehicleType, selectedBodyType, selectedColor]);
+  }, [selectedBrand, selectedModel, selectedFuel, selectedYear, searchQuery, sortBy, priceFrom, priceTo, selectedVehicleType, selectedBodyType, selectedColor, selectedCondition]);
 
   useEffect(() => {
     // Only debounce if there's a search query (user typing), otherwise fetch immediately
@@ -140,6 +153,7 @@ function SearchPageContent() {
     setSelectedVehicleType("Të gjitha");
     setSelectedBodyType("Të gjitha");
     setSelectedColor("Të gjitha");
+    setSelectedCondition("Të gjitha");
     setPriceFrom("");
     setPriceTo("");
   }
@@ -153,6 +167,7 @@ function SearchPageContent() {
   if (selectedVehicleType !== "Të gjitha") chips.push({ label: selectedVehicleType, active: true, clear: () => setSelectedVehicleType("Të gjitha") });
   if (selectedBodyType !== "Të gjitha") chips.push({ label: `Tipi: ${selectedBodyType}`, active: true, clear: () => setSelectedBodyType("Të gjitha") });
   if (selectedColor !== "Të gjitha") chips.push({ label: `Ngjyra: ${selectedColor}`, active: true, clear: () => setSelectedColor("Të gjitha") });
+  if (selectedCondition !== "Të gjitha") chips.push({ label: `Gjendja: ${selectedCondition}`, active: true, clear: () => setSelectedCondition("Të gjitha") });
 
   return (
     <main className="bg-gray-50 w-full text-gray-900 flex-grow flex flex-col items-center min-h-screen">
@@ -194,14 +209,14 @@ function SearchPageContent() {
             className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 tracking-tight"
             style={{ animation: "heroFadeUp 0.6s ease-out 0.1s both" }}
           >
-            Gjeni Makinën <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-400">Perfekte</span>
+            Gjeni Automjetin <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-400">Perfekt</span>
           </h1>
 
           <p
             className="text-gray-400 mb-10 text-lg max-w-xl mx-auto"
             style={{ animation: "heroFadeUp 0.5s ease-out 0.25s both" }}
           >
-            Filtro, kërko dhe gjej makinën që i përshtatet stilit dhe buxhetit tuaj.
+            Filtro, kërko dhe gjej automjetin që i përshtatet stilit dhe buxhetit tuaj.
           </p>
 
           {/* ── glowing search bar ── */}
@@ -290,7 +305,7 @@ function SearchPageContent() {
 
             <div className="hidden lg:flex items-center gap-2">
               <p className="text-gray-500 text-sm mr-1">
-                <span className="font-bold text-gray-900">{total}</span> makina u gjetën
+                <span className="font-bold text-gray-900">{total}</span> automjete u gjetën
               </p>
               <AnimatePresence>
                 {chips.map((chip) => (
@@ -383,6 +398,10 @@ function SearchPageContent() {
                     <FilterSelect label="Ngjyra" value={selectedColor} onChange={setSelectedColor} options={colorOptions}
                       icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>}
                     />
+                    {/* Condition */}
+                    <FilterSelect label="Gjendja" value={selectedCondition} onChange={setSelectedCondition} options={conditionOptions}
+                      icon={<svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+                    />
 
                     {/* Price Range */}
                     <div>
@@ -429,7 +448,7 @@ function SearchPageContent() {
             <div className="flex-grow">
               {/* mobile count */}
               <p className="lg:hidden text-gray-500 text-sm mb-4">
-                <span className="font-bold text-gray-900">{total}</span> makina u gjetën
+                <span className="font-bold text-gray-900">{total}</span> automjete u gjetën
               </p>
 
               {loading ? (
@@ -439,7 +458,7 @@ function SearchPageContent() {
                   <div
                     className="w-14 h-14 mx-auto mb-5 border-4 border-amber-200 border-t-amber-500 rounded-full animate-spin"
                   />
-                  <p className="text-gray-400 font-medium">Duke kërkuar makina...</p>
+                  <p className="text-gray-400 font-medium">Duke kërkuar automjete...</p>
                 </div>
               ) : cars.length === 0 ? (
                 <div
@@ -455,7 +474,7 @@ function SearchPageContent() {
                       </svg>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-700 mb-2">Asnjë makinë nuk u gjet</h3>
+                  <h3 className="text-xl font-bold text-gray-700 mb-2">Asnjë automjet nuk u gjet</h3>
                   <p className="text-gray-400 mb-6 max-w-sm mx-auto">Provoni të ndryshoni filtrat ose kërkimin për rezultate më të mira.</p>
                   <button
                     onClick={clearFilters}

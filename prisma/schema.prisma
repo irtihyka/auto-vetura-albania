@@ -43,6 +43,7 @@ model Listing {
   color       String?
   vehicleType String   @default("Makinë") // "Makinë", "Motocikletë", "Kamion", "Furgon"
   bodyType    String?  // "Sedan", "SUV", "Hatchback", "Coupe", etc.
+  condition   String?  @default("E përdorur") // "E re", "E përdorur"
   location    String?
   phone       String?
   status      String   @default("active") // "active", "sold", "paused"

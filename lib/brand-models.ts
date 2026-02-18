@@ -91,7 +91,145 @@ export const brandModels: Record<string, string[]> = {
   ],
 };
 
-/** Get models for a given brand, returns empty array if brand not found */
-export function getModelsForBrand(brand: string): string[] {
-  return brandModels[brand] || [];
+/** Motorcycle brands and models */
+export const motorcycleBrands: Record<string, string[]> = {
+  "Honda": [
+    "CBR 600RR", "CBR 1000RR", "CB 500F", "CB 650R", "CRF 250L", "CRF 300L",
+    "Africa Twin", "Gold Wing", "Rebel 500", "NC750X", "Forza 125", "Forza 350",
+    "SH 125", "SH 150", "SH 300", "PCX 125", "X-ADV",
+  ],
+  "Yamaha": [
+    "YZF-R1", "YZF-R6", "YZF-R3", "YZF-R125", "MT-07", "MT-09", "MT-125",
+    "Ténéré 700", "Tracer 9", "XSR 700", "XSR 900", "NMAX 125", "XMAX 300",
+    "TMAX 560", "FZ", "Aerox",
+  ],
+  "Kawasaki": [
+    "Ninja 400", "Ninja 650", "Ninja ZX-6R", "Ninja ZX-10R", "Z400", "Z650",
+    "Z900", "Z1000", "Versys 650", "Versys 1000", "Vulcan S", "KLR 650",
+  ],
+  "Suzuki": [
+    "GSX-R600", "GSX-R750", "GSX-R1000", "GSX-S750", "GSX-S1000",
+    "V-Strom 650", "V-Strom 1050", "SV650", "Burgman 400", "Hayabusa", "Katana",
+  ],
+  "Ducati": [
+    "Panigale V2", "Panigale V4", "Monster", "Scrambler", "Multistrada V4",
+    "Diavel", "Streetfighter V4", "Hypermotard", "Desert X", "SuperSport",
+  ],
+  "BMW": [
+    "R 1250 GS", "R 1250 RT", "S 1000 RR", "S 1000 XR", "F 900 R",
+    "F 850 GS", "G 310 R", "G 310 GS", "C 400 X", "C 650 GT",
+  ],
+  "KTM": [
+    "Duke 125", "Duke 200", "Duke 390", "Duke 690", "Duke 790", "Duke 890",
+    "RC 125", "RC 390", "Adventure 390", "Adventure 790", "Adventure 890",
+    "Adventure 1290", "EXC", "SX",
+  ],
+  "Harley-Davidson": [
+    "Sportster", "Iron 883", "Forty-Eight", "Street Bob", "Fat Boy",
+    "Road King", "Street Glide", "Road Glide", "Softail", "Electra Glide",
+    "LiveWire", "Pan America",
+  ],
+  "Aprilia": [
+    "RS 125", "RS 660", "RSV4", "Tuono 660", "Tuono V4",
+    "Shiver 900", "Dorsoduro 900", "SR GT", "SXR 125",
+  ],
+  "Vespa": [
+    "Primavera 50", "Primavera 125", "Primavera 150", "Sprint 125", "Sprint 150",
+    "GTS 125", "GTS 300", "Elettrica",
+  ],
+  "Piaggio": [
+    "Liberty 125", "Medley 125", "Medley 150", "Beverly 300", "Beverly 400",
+    "MP3 300", "MP3 500",
+  ],
+  "Triumph": [
+    "Street Triple", "Speed Triple", "Tiger 900", "Tiger 1200",
+    "Bonneville", "Scrambler", "Rocket 3", "Trident 660",
+  ],
+  "Benelli": [
+    "TRK 502", "TRK 502 X", "Leoncino 500", "752S", "302S", "BN 125",
+  ],
+};
+
+/** Truck/commercial vehicle brands and models */
+export const truckBrands: Record<string, string[]> = {
+  "Mercedes-Benz": [
+    "Actros", "Arocs", "Atego", "Axor", "Econic", "Sprinter", "Vito", "Citan",
+  ],
+  "MAN": [
+    "TGX", "TGS", "TGM", "TGL", "TGE",
+  ],
+  "Volvo": [
+    "FH", "FM", "FMX", "FE", "FL",
+  ],
+  "Scania": [
+    "R-Series", "S-Series", "G-Series", "P-Series", "L-Series",
+  ],
+  "DAF": [
+    "XF", "XG", "XG+", "CF", "LF",
+  ],
+  "Iveco": [
+    "Stralis", "S-Way", "Eurocargo", "Daily", "Trakker",
+  ],
+  "Renault": [
+    "T", "C", "K", "D", "Master",
+  ],
+  "Ford": [
+    "Transit", "Transit Custom", "Transit Connect", "Ranger", "F-Max",
+  ],
+  "Fiat": [
+    "Ducato", "Doblo", "Fiorino", "Talento",
+  ],
+  "Isuzu": [
+    "N-Series", "F-Series", "D-Max",
+  ],
+  "Mitsubishi": [
+    "Canter", "Fighter", "L200",
+  ],
+  "Toyota": [
+    "Hilux", "Land Cruiser", "Dyna", "Coaster",
+  ],
+};
+
+/** Van/Furgon brands and models */
+export const vanBrands: Record<string, string[]> = {
+  "Mercedes-Benz": ["Sprinter", "Vito", "Citan", "V-Class"],
+  "Ford": ["Transit", "Transit Custom", "Transit Connect", "Transit Courier"],
+  "Volkswagen": ["Transporter", "Caddy", "Crafter", "Caravelle", "Multivan"],
+  "Renault": ["Master", "Trafic", "Kangoo", "Express"],
+  "Fiat": ["Ducato", "Scudo", "Doblo", "Fiorino", "Talento"],
+  "Peugeot": ["Boxer", "Expert", "Partner", "Rifter"],
+  "Citroën": ["Jumper", "Jumpy", "Berlingo", "Nemo"],
+  "Opel": ["Movano", "Vivaro", "Combo"],
+  "Iveco": ["Daily"],
+  "Nissan": ["NV400", "NV300", "NV200", "Townstar"],
+  "Toyota": ["ProAce", "ProAce City", "Hiace"],
+};
+
+/** Get brands for a given vehicle type */
+export function getBrandsForVehicleType(vehicleType: string): string[] {
+  switch (vehicleType) {
+    case "Motocikletë":
+      return Object.keys(motorcycleBrands);
+    case "Kamion":
+      return Object.keys(truckBrands);
+    case "Furgon":
+      return Object.keys(vanBrands);
+    default:
+      return Object.keys(brandModels);
+  }
+}
+
+/** Get models for a given brand, with optional vehicle type context */
+export function getModelsForBrand(brand: string, vehicleType?: string): string[] {
+  if (vehicleType === "Motocikletë" && motorcycleBrands[brand]) {
+    return motorcycleBrands[brand];
+  }
+  if (vehicleType === "Kamion" && truckBrands[brand]) {
+    return truckBrands[brand];
+  }
+  if (vehicleType === "Furgon" && vanBrands[brand]) {
+    return vanBrands[brand];
+  }
+  // Fall back to car models, then try other categories
+  return brandModels[brand] || motorcycleBrands[brand] || truckBrands[brand] || vanBrands[brand] || [];
 }

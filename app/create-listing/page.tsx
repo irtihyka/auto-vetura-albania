@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getModelsForBrand } from "@/lib/brand-models";
+import { getModelsForBrand, getBrandsForVehicleType } from "@/lib/brand-models";
 
 const carBrands = [
   "Audi", "BMW", "Citroën", "Dacia", "Fiat", "Ford", "Honda", "Hyundai",
@@ -12,8 +12,9 @@ const carBrands = [
 
 const fuelTypes = ["Benzinë", "Diesel", "Hibrid", "Elektrik", "Gaz/TNG", "Benzinë+Gaz", "Tjetër"];
 const transmissionTypes = ["Automatik", "Manual"];
-const bodyTypes = ["Sedan", "SUV", "Hatchback", "Coupe", "Kombi", "Van", "Kabriolet"];
+const bodyTypes = ["Sedan", "SUV", "Hatchback", "Coupe", "Kombi", "Van", "Kabriolet", "Minivan", "Pickup", "Limuzinë", "Furgon", "Crossover", "Mikrobus"];
 const vehicleTypeOptions = ["Makinë", "Motocikletë", "Kamion", "Furgon"];
+const conditionOptions = ["E re", "E përdorur"];
 const colorOptions = [
   "E bardhë", "E zezë", "Gri", "Argjendi", "Blu", "E kuqe",
   "Jeshile", "E verdhë", "Portokalli", "Kafe", "Bezhë", "E artë",
@@ -47,6 +48,7 @@ export default function CreateListingPage() {
     location: "",
     phone: "",
     vehicleType: "Makinë",
+    condition: "E përdorur",
   });
 
   useEffect(() => {
@@ -160,7 +162,7 @@ export default function CreateListingPage() {
                       <button
                         key={vt}
                         type="button"
-                        onClick={() => setFormData({ ...formData, vehicleType: vt })}
+                        onClick={() => setFormData({ ...formData, vehicleType: vt, brand: "", model: "" })}
                         className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 ${
                           formData.vehicleType === vt
                             ? "border-amber-500 bg-amber-50 text-amber-700 shadow-sm"
@@ -168,6 +170,25 @@ export default function CreateListingPage() {
                         }`}
                       >
                         {vt}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="block text-sm font-bold mb-2">Gjendja *</label>
+                  <div className="flex flex-wrap gap-3">
+                    {conditionOptions.map((co) => (
+                      <button
+                        key={co}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, condition: co })}
+                        className={`px-5 py-2.5 rounded-xl text-sm font-semibold border-2 transition-all duration-200 ${
+                          formData.condition === co
+                            ? "border-amber-500 bg-amber-50 text-amber-700 shadow-sm"
+                            : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
+                        }`}
+                      >
+                        {co}
                       </button>
                     ))}
                   </div>
@@ -181,7 +202,7 @@ export default function CreateListingPage() {
                     onChange={(e) => setFormData({ ...formData, brand: e.target.value, model: "" })}
                   >
                     <option value="">Zgjidh markën</option>
-                    {carBrands.map((b) => (
+                    {getBrandsForVehicleType(formData.vehicleType).map((b) => (
                       <option key={b} value={b}>{b}</option>
                     ))}
                   </select>
@@ -195,7 +216,7 @@ export default function CreateListingPage() {
                     onChange={(e) => setFormData({ ...formData, model: e.target.value })}
                   >
                     <option value="">{formData.brand ? "Zgjidh modelin" : "Zgjidh markën fillimisht"}</option>
-                    {getModelsForBrand(formData.brand).map((m) => (
+                    {getModelsForBrand(formData.brand, formData.vehicleType).map((m) => (
                       <option key={m} value={m}>{m}</option>
                     ))}
                   </select>
@@ -328,7 +349,7 @@ export default function CreateListingPage() {
               </div>
               <textarea
                 rows={5}
-                placeholder="Përshkruani makinën tuaj... (opsionale)"
+                placeholder="Përshkruani mjetin tuaj... (opsionale)"
                 className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}

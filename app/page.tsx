@@ -29,7 +29,12 @@ const colorOptions = [
   "E bardhë", "E zezë", "Gri", "Argjendi", "Blu", "E kuqe",
   "Jeshile", "E verdhë", "Portokalli", "Kafe", "Bezhë", "E artë",
 ];
-const yearOptions = ["2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015"];
+const yearOptions = [
+  "2026", "2025", "2024", "2023", "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015",
+  "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",
+  "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997", "1996", "1995",
+  "1994", "1993", "1992", "1991", "1990",
+];
 const priceRanges = [
   { label: "1,000 €", value: "0-1000" },
   { label: "2,000 €", value: "0-2000" },
@@ -81,7 +86,15 @@ const carTypes = [
   { name: "Hatchback", value: "Hatchback" },
   { name: "Coupe", value: "Coupe" },
   { name: "Karavan", value: "Karavan" },
+  { name: "Kombi", value: "Kombi" },
+  { name: "Kabriolet", value: "Kabriolet" },
+  { name: "Van", value: "Van" },
+  { name: "Minivan", value: "Minivan" },
+  { name: "Pickup", value: "Pickup" },
+  { name: "Limuzinë", value: "Limuzinë" },
   { name: "Furgon", value: "Furgon" },
+  { name: "Crossover", value: "Crossover" },
+  { name: "Mikrobus", value: "Mikrobus" },
 ];
 
 const cityNames = ["Tiranë", "Durrës", "Vlorë", "Shkodër", "Elbasan", "Korçë", "Fier", "Berat", "Lushnjë", "Pogradec", "Kavajë", "Gjirokastër", "Sarandë", "Lezhë", "Kukës"];
@@ -289,10 +302,10 @@ export default function Home() {
           {/* Heading */}
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-tight mb-3">
-              Makina për shitje <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">në Shqipëri</span>
+              Automjete për shitje <span className="bg-gradient-to-r from-amber-400 to-yellow-400 bg-clip-text text-transparent">në Shqipëri</span>
             </h1>
             <p className="text-gray-400 text-base max-w-xl mx-auto">
-              Gjeni makinën perfekte nga mijëra njoftime të verifikuara
+              Gjeni automjetin perfekt nga mijëra njoftime të verifikuara
             </p>
           </div>
 
@@ -595,11 +608,11 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-4 py-1.5 mb-5">
             <svg className="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-            <span className="text-xs text-gray-300 font-medium">Njoftohu për makina të reja</span>
+            <span className="text-xs text-gray-300 font-medium">Njoftohu për automjete të reja</span>
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-white mb-3">Mos humbisni asnjë ofertë</h2>
           <p className="text-gray-400 text-sm mb-8 max-w-lg mx-auto">
-            Regjistrohuni për të marrë njoftime kur shtohen makina që përputhen me kërkimin tuaj.
+            Regjistrohuni për të marrë njoftime kur shtohen automjete që përputhen me kërkimin tuaj.
           </p>
           <form onSubmit={(e) => { e.preventDefault(); }} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input

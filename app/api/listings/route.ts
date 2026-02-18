@@ -47,6 +47,7 @@ export async function GET(request: NextRequest) {
     const bodyType = searchParams.get("bodyType");
     const city = searchParams.get("city");
     const color = searchParams.get("color");
+    const condition = searchParams.get("condition");
     const kmFrom = searchParams.get("kmFrom");
     const kmTo = searchParams.get("kmTo");
 
@@ -62,6 +63,7 @@ export async function GET(request: NextRequest) {
     if (bodyType) where.bodyType = bodyType;
     if (city) where.location = city;
     if (color) where.color = color;
+    if (condition) where.condition = condition;
     if (userId) where.userId = userId;
     if (featured === "true") where.featured = true;
 
@@ -211,7 +213,7 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await request.json();
-    const { title, description, brand, model, year, fuel, transmission, km, price, color, bodyType, location, phone, images, vehicleType } = data;
+    const { title, description, brand, model, year, fuel, transmission, km, price, color, bodyType, location, phone, images, vehicleType, condition } = data;
 
     // Validate required fields
     if (!title || !brand || !model || !year || !fuel || !transmission || km === undefined || !price) {
@@ -235,6 +237,7 @@ export async function POST(request: NextRequest) {
         color: color || null,
         bodyType: bodyType || null,
         vehicleType: vehicleType || "Makinë",
+        condition: condition || "E përdorur",
         location: location || null,
         phone: phone || null,
         userId: authUser.userId,

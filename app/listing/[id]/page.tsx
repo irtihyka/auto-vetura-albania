@@ -25,6 +25,7 @@ interface ListingDetail {
   price: number;
   color: string | null;
   bodyType: string | null;
+  condition: string | null;
   location: string | null;
   phone: string | null;
   views: number;
@@ -406,6 +407,12 @@ export default function ListingPage() {
                   <div className="bg-gray-50 rounded-lg p-3">
                     <span className="text-sm text-gray-500 block">Tipi</span>
                     <span className="font-semibold">{listing.bodyType}</span>
+                  </div>
+                )}
+                {listing.condition && (
+                  <div className="bg-gray-50 rounded-lg p-3">
+                    <span className="text-sm text-gray-500 block">Gjendja</span>
+                    <span className="font-semibold">{listing.condition}</span>
                   </div>
                 )}
                 {listing.location && (
